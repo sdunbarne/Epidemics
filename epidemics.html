@@ -1,0 +1,2974 @@
+<!DOCTYPE html> 
+<html> 
+<head> <title></title> 
+<meta charset="UTF-8" /> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<link rel="stylesheet" type="text/css" href="epidemics.css" /> 
+<script type="text/javascript" 
+src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" 
+></script> 
+<style type="text/css"> 
+.MathJax_MathML {text-indent: 0;} 
+</style> 
+</head><body 
+>
+<!--l. 8--><p class="noindent" >Steven R. Dunbar <br 
+class="newline" />Department of Mathematics <br 
+class="newline" />203 Avery Hall <br 
+class="newline" />University of Nebraska-Lincoln <br 
+class="newline" />Lincoln, NE 68588-0130 <br 
+class="newline" /><span 
+class="cmtt-12">http://www.math.unl.edu </span><br 
+class="newline" />Voice: 402-472-3731 <br 
+class="newline" />Fax: 402-472-8466                  </p>
+<div class="center" 
+>
+<!--l. 1--><p class="noindent" >
+</p><!--l. 6--><p class="noindent" > <span 
+class="cmbx-12x-x-144">Topics in</span><br />
+<span 
+class="cmbx-12x-x-144">Probability Theory and Stochastic Processes</span><br />
+<span 
+class="cmbx-12x-x-144">Steven R. Dunbar</span>
+</p></div>
+<!--l. 19--><p class="noindent" >__________________________________________________________________________
+</p>
+<div class="center" 
+>
+<!--l. 21--><p class="noindent" >
+</p><!--l. 21--><p class="noindent" ><span 
+class="cmr-17">Markov Chain Epidemic Models</span></p></div>
+<!--l. 23--><p class="indent" >   _______________________________________________________________________
+</p><!--l. 25--><p class="indent" >   <img 
+src="../../../../CommonInformation/Lessons/rating.png" alt="Rating"  
+ />
+</p>
+   <h3 class="likesectionHead"><a 
+ id="x1-1000"></a>Rating</h3>
+<!--l. 29--><p class="noindent" >Mathematically Mature: may contain mathematics beyond calculus with
+proofs.
+</p><!--l. 32--><p class="indent" >   _______________________________________________________________________________________________
+</p><!--l. 34--><p class="indent" >   <img 
+src="../../../../CommonInformation/Lessons/question_mark.png" alt="Section Starter Question"  
+ />
+                                                                          
+
+                                                                          
+</p>
+   <h3 class="likesectionHead"><a 
+ id="x1-2000"></a>Section Starter Question</h3>
+<!--l. 37--><p class="noindent" >Suppose a single person in a population of
+<!--l. 37--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mi 
+>S</mi></mrow></math>
+susceptible individuals has a communicable disease. What is a simple probabilistic
+model of how this person could infect some number of people in a given time
+interval?
+</p><!--l. 42--><p class="indent" >   _______________________________________________________________________________________________
+</p><!--l. 44--><p class="indent" >   <img 
+src="../../../../CommonInformation/Lessons/keyconcepts.png" alt="Key Concepts"  
+ />
+</p>
+   <h3 class="likesectionHead"><a 
+ id="x1-3000"></a>Key Concepts</h3>
+<!--l. 48--><p class="noindent" >
+      </p><dl class="enumerate-enumitem"><dt class="enumerate-enumitem">
+   1. </dt><dd 
+class="enumerate-enumitem">Markov chain <span 
+class="cmbx-12">Susceptible-Infected-Removed &#x0028;SIR&#x0029; models</span>. have
+      a population and a disease which infects members of the population for
+      a &#xFB01;xed amount of time, after which we consider them to be removed,
+      in the sense that each one is no longer susceptible and cannot become
+      infected again.
+      </dd><dt class="enumerate-enumitem">
+   2. </dt><dd 
+class="enumerate-enumitem">The <span 
+class="cmbx-12">Greenwood Model </span>assumes the number of Infectives in generation
+      <!--l. 56--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mi 
+>t</mi></mrow></math>
+      is a binomial random variable with parameters <!--l. 57--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><msub><mrow 
+><mi 
+>S</mi></mrow><mrow 
+><mi 
+>t</mi></mrow></msub 
+></mrow></math>
+      and infection success constant <!--l. 57--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mi 
+>p</mi></mrow></math>,
+      not depending on the number of Infectives.
+      </dd><dt class="enumerate-enumitem">
+   3. </dt><dd 
+class="enumerate-enumitem">For the Greenwood model
+                                                                          
+
+                                                                          
+      <!--tex4ht:inline--><!--l. 64--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="block" ><mtable 
+columnalign="left" class="align-star">
+                          <mtr><mtd 
+columnalign="right" class="align-odd"><mi 
+>&#x1D53C;</mi> <mfenced separators="" 
+open="["  close="]" ><mrow><msub><mrow 
+><mi 
+>S</mi></mrow><mrow 
+><mi 
+>t</mi></mrow></msub 
+><mo 
+class="MathClass-rel">&#x2223;</mo><msub><mrow 
+><mi 
+>S</mi></mrow><mrow 
+><mn>0</mn></mrow></msub 
+> <mo 
+class="MathClass-rel">=</mo> <msub><mrow 
+><mi 
+>s</mi></mrow><mrow 
+><mn>0</mn></mrow></msub 
+></mrow></mfenced></mtd>                                   <mtd 
+class="align-even"> <mo 
+class="MathClass-rel">=</mo> <msup><mrow 
+><mrow ><mo 
+class="MathClass-open">&#x0028;</mo><mrow><mn>1</mn> <mo 
+class="MathClass-bin">&#x2212;</mo> <mi 
+>p</mi></mrow><mo 
+class="MathClass-close">&#x0029;</mo></mrow></mrow><mrow 
+><mi 
+>t</mi></mrow></msup 
+><msub><mrow 
+><mi 
+>s</mi></mrow><mrow 
+>
+<mn>0</mn></mrow></msub 
+><mo 
+class="MathClass-punc">,</mo><mspace width="2em"/></mtd>                         <mtd 
+columnalign="right" class="align-label"></mtd>                      <mtd 
+class="align-label">
+                      <mspace width="2em"/></mtd></mtr><mtr><mtd 
+columnalign="right" class="align-odd"><mi 
+>&#x1D53C;</mi> <mfenced separators="" 
+open="["  close="]" ><mrow><msub><mrow 
+><mi 
+>I</mi></mrow><mrow 
+><mi 
+>t</mi></mrow></msub 
+><mo 
+class="MathClass-rel">&#x2223;</mo><msub><mrow 
+><mi 
+>S</mi></mrow><mrow 
+><mn>0</mn></mrow></msub 
+> <mo 
+class="MathClass-rel">=</mo> <msub><mrow 
+><mi 
+>s</mi></mrow><mrow 
+><mn>0</mn></mrow></msub 
+></mrow></mfenced></mtd>                                    <mtd 
+class="align-even"> <mo 
+class="MathClass-rel">=</mo> <mi 
+>p</mi><msup><mrow 
+><mrow ><mo 
+class="MathClass-open">&#x0028;</mo><mrow><mn>1</mn> <mo 
+class="MathClass-bin">&#x2212;</mo> <mi 
+>p</mi></mrow><mo 
+class="MathClass-close">&#x0029;</mo></mrow></mrow><mrow 
+><mi 
+>t</mi><mo 
+class="MathClass-bin">&#x2212;</mo><mn>1</mn></mrow></msup 
+><msub><mrow 
+><mi 
+>s</mi></mrow><mrow 
+>
+<mn>0</mn></mrow></msub 
+><mo 
+class="MathClass-punc">.</mo><mspace width="2em"/></mtd>                      <mtd 
+columnalign="right" class="align-label"></mtd>                      <mtd 
+class="align-label">
+<mspace width="2em"/></mtd></mtr></mtable></math>
+      </dd><dt class="enumerate-enumitem">
+   4. </dt><dd 
+class="enumerate-enumitem">The <span 
+class="cmbx-12">Reed-Frost model </span>includes an infective size dependency that the
+      Greenwood model lacks.
+      </dd><dt class="enumerate-enumitem">
+   5. </dt><dd 
+class="enumerate-enumitem">In comparison to the Greenwood model, the Reed-Frost model
+      gives a higher probability to more new Infectives at generation
+      <!--l. 70--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mi 
+>t</mi> <mo 
+class="MathClass-bin">+</mo> <mn>1</mn></mrow></math>
+      if there are already a large number Infectives at generation
+      <!--l. 71--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mi 
+>t</mi></mrow></math>
+      than if there is only a small population of Infectives. The Reed-Frost model
+      has a positive feedback e&#xFB00;ect on infectives.
+      </dd><dt class="enumerate-enumitem">
+   6. </dt><dd 
+class="enumerate-enumitem">Under some common asymptotic assumptions, is, the number of Infectives is
+      the result of a Galton-Watson process or branching process. Then from the
+      standard theory for branching processes, the epidemic is <span 
+class="cmti-12">subcritical </span>if
+      <!--l. 79--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mi 
+>&#x03BB;</mi> <mo 
+class="MathClass-rel">&#x2264;</mo> <mn>1</mn></mrow></math> and
+      <span 
+class="cmti-12">supercritical </span>if <!--l. 80--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mi 
+>&#x03BB;</mi> <mo 
+class="MathClass-rel">&#x003E;</mo> <mn>1</mn></mrow></math>.</dd></dl>
+<!--l. 83--><p class="noindent" >__________________________________________________________________________
+</p><!--l. 85--><p class="indent" >   <img 
+src="../../../../CommonInformation/Lessons/vocabulary.png" alt="Vocabulary"  
+ />
+</p>
+   <h3 class="likesectionHead"><a 
+ id="x1-4000"></a>Vocabulary</h3>
+<!--l. 88--><p class="noindent" >
+                                                                          
+
+                                                                          
+      </p><dl class="enumerate-enumitem"><dt class="enumerate-enumitem">
+   1. </dt><dd 
+class="enumerate-enumitem">Markov chain <span 
+class="cmbx-12">Susceptible-Infected-Removed &#x0028;SIR&#x0029; models</span>. have
+      a population and a disease which infects members of the population for
+      a &#xFB01;xed amount of time, after which we consider them to be removed,
+      in the sense that each one is no longer susceptible and cannot become
+      infected again.
+      </dd><dt class="enumerate-enumitem">
+   2. </dt><dd 
+class="enumerate-enumitem">The <span 
+class="cmbx-12">Greenwood Model </span>assumes the number of Infectives in generation
+      <!--l. 96--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mi 
+>t</mi></mrow></math>
+      is a binomial random variable with parameters <!--l. 97--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><msub><mrow 
+><mi 
+>S</mi></mrow><mrow 
+><mi 
+>t</mi></mrow></msub 
+></mrow></math>
+      and infection success constant <!--l. 97--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mi 
+>p</mi></mrow></math>,
+      not depending on the number of Infectives.
+      </dd><dt class="enumerate-enumitem">
+   3. </dt><dd 
+class="enumerate-enumitem">The <span 
+class="cmbx-12">Reed-Frost model </span>includes an infective size dependency which
+      the Greenwood model lacks.
+      </dd><dt class="enumerate-enumitem">
+   4. </dt><dd 
+class="enumerate-enumitem">De&#xFB01;ne the <span 
+class="cmbx-12">extinction time </span><!--l. 103--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mi 
+>&#x03C4;</mi></mrow></math>
+      <span 
+class="cmbx-12">of an epidemic </span>to be the generation at which <!--l. 104--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><msub><mrow 
+><mi 
+>i</mi></mrow><mrow 
+><mi 
+>t</mi></mrow></msub 
+></mrow></math>
+      is &#xFB01;rst zero.
+      </dd><dt class="enumerate-enumitem">
+   5. </dt><dd 
+class="enumerate-enumitem">The <span 
+class="cmbx-12">total damage </span>of the epidemic is <!--l. 106--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mi 
+>K</mi> <mo 
+class="MathClass-rel">=</mo><msubsup><mrow 
+><mo 
+class="MathClass-op"> &#x2211;</mo>
+  <!--nolimits--></mrow><mrow 
+><mi 
+>j</mi><mo 
+class="MathClass-rel">=</mo><mn>0</mn></mrow><mrow 
+><mi 
+>&#x03C4;</mi></mrow></msubsup 
+><msub><mrow 
+><mi 
+>i</mi></mrow><mrow 
+>
+<mi 
+>j</mi></mrow></msub 
+></mrow></math></dd></dl>
+<!--l. 110--><p class="noindent" >__________________________________________________________________________
+</p><!--l. 112--><p class="indent" >   <img 
+src="../../../../CommonInformation/Lessons/mathematicalideas.png" alt="Mathematical Ideas"  
+ />
+</p>
+   <h3 class="likesectionHead"><a 
+ id="x1-5000"></a>Mathematical Ideas</h3>
+<!--l. 115--><p class="noindent" >
+</p>
+   <h4 class="likesubsectionHead"><a 
+ id="x1-6000"></a>Introduction</h4>
+                                                                          
+
+                                                                          
+<!--l. 117--><p class="noindent" >This section is an introduction to elementary Markov chain
+<span 
+class="cmbx-12">Susceptible-Infected-Removed &#x0028;SIR&#x0029; models</span>.&#x00A0;&#x00A0; These Markov chains model
+a population and a disease that infects members of the population for a &#xFB01;xed
+amount of time, after which we consider them to be removed, in the sense that
+they are no longer susceptible and cannot become infected again. The removed
+class includes individuals who are no longer either susceptible either because of
+recovery and subsequent immunity or because of death. That is, after members of
+the population have been infected for one time &#x201C;unit&#x201D;, we will no longer be
+concerned with them, as they cannot infect anyone else, nor can they
+become infected again. Therefore only two classes need to be considered, the
+Susceptibles and the Infectives. Figure&#x00A0;<a 
+href="#x1-60011">1<!--tex4ht:ref: fig:epidemics:sirdiagram --></a> shows the movement between the
+classes.
+</p>
+   <hr class="figure" /><div class="figure" 
+>
+                                                                          
+<p class="indent" >
+<img
+src="epidemics-1.png" alt="SIR class diagram"
+/>
+                                                                          
+<a 
+ id="x1-60011"></a>
+                                                                          
+
+                                                                          
+<br />    <div class="caption" 
+><span class="id">Figure&#x00A0;1:      </span><span  
+class="content">Schematic      class      diagram      for      the      simple
+Susceptible-Infective-Removed epidemic model illustrating the classes of the
+epidemic and the movement from class to class and not the state transitions
+of the Markov chain.</span></div><!--tex4ht:label?: x1-60011 -->
+                                                                          
+
+                                                                          
+   </div><hr class="endfigure" />
+<!--l. 175--><p class="indent" >   Markov chain models use discrete time and a discrete state space. The discrete time
+will be in units of the infectivity period of the disease. Typically this unit time is about
+<!--l. 177--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mn>7</mn></mrow></math>-<!--l. 177--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mn>8</mn></mrow></math>
+days  for  measles,  and  about
+<!--l. 178--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mn>7</mn></mrow></math>-<!--l. 178--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mn>9</mn></mrow></math>
+days for in&#xFB02;uenza. Call each of these unit time periods a generation, enumerated by the
+integer variable <!--l. 179--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mi 
+>t</mi></mrow></math>.
+&#x0028;This is a slight change from the usual notation for discrete time Markov chains using
+indices <!--l. 181--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mi 
+>i</mi></mrow></math> or
+<!--l. 181--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mi 
+>j</mi></mrow></math> for the discrete
+time. Using <!--l. 181--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mi 
+>t</mi></mrow></math>
+avoids confusion with the number of Infectives.&#x0029; The infectivity period
+may either be distinct from, or overlap, the period when the infected
+person shows symptoms of the disease. The incubation period which is the
+period between infection and onset of symptoms, and the latent period, the
+time from infection to infectiousness are di&#xFB00;erent from the infectivity
+period. Figure&#x00A0;<a 
+href="#x1-60022">2<!--tex4ht:ref: fig:epidemics:periods --></a> illustrates one possible con&#xFB01;guration of these disease
+periods. The states will be the number of Susceptibles and Infectives in a
+homogeneous and well-mixed population. Assume the epidemic takes place
+over a short enough time interval that the population is a constant value
+<!--l. 192--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mi 
+>N</mi></mrow></math>, that
+is, assume no births and no emigration or immigration. So it is enough to consider
+only Susceptibles and Infectives since the number of individuals in the Removed
+class is determined from the other two.
+</p>
+   <hr class="figure" /><div class="figure" 
+>
+                                                                          
+<p class="indent" >
+<img
+src="epidemics-2.png" alt="Disease stages or periods."
+/>
+
+                                                                          
+<a 
+ id="x1-60022"></a>
+                                                                          
+
+                                                                          
+<br /> <div class="caption" 
+><span class="id">Figure&#x00A0;2: </span><span  
+class="content">Possible relation of disease stages or periods.</span></div><!--tex4ht:label?: x1-60022 -->
+                                                                          
+
+                                                                          
+   </div><hr class="endfigure" />
+<!--l. 233--><p class="indent" >   To keep track of each group, denote the number of Susceptibles at generation
+<!--l. 234--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mi 
+>t</mi></mrow></math> by
+<!--l. 234--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><msub><mrow 
+><mi 
+>S</mi></mrow><mrow 
+><mi 
+>t</mi></mrow></msub 
+></mrow></math>, and the number of
+Infectives at generation <!--l. 235--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mi 
+>t</mi></mrow></math>
+by <!--l. 235--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><msub><mrow 
+><mi 
+>I</mi></mrow><mrow 
+><mi 
+>t</mi></mrow></msub 
+></mrow></math>.
+These random variables may achieve any integer value such that
+<!--l. 236--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><msub><mrow 
+><mi 
+>S</mi></mrow><mrow 
+><mi 
+>t</mi></mrow></msub 
+> <mo 
+class="MathClass-bin">+</mo> <msub><mrow 
+><mi 
+>I</mi></mrow><mrow 
+><mi 
+>t</mi></mrow></msub 
+></mrow></math> is in
+the population range.
+</p><!--l. 238--><p class="indent" >   A natural &#xFB01;rst question for any epidemic model is the probability of having
+<!--l. 239--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><msub><mrow 
+><mi 
+>I</mi></mrow><mrow 
+><mi 
+>t</mi><mo 
+class="MathClass-bin">+</mo><mn>1</mn></mrow></msub 
+></mrow></math> Infectives at generation
+<!--l. 239--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mi 
+>t</mi> <mo 
+class="MathClass-bin">+</mo> <mn>1</mn></mrow></math>. In asking this question
+at generation <!--l. 240--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mi 
+>t</mi></mrow></math>,
+assume we know the number of Susceptibles and Infectives at every generation up
+to <!--l. 241--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mi 
+>t</mi></mrow></math>. Since
+the model is expressed in time units of infectivity periods where individuals move
+from one class to another, the main focus is on the number of Infectives at generation
+<!--l. 244--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mi 
+>t</mi></mrow></math>,
+ignoring the past, also keeping track of the Susceptibles. Then
+the model is a &#xFB01;rst-order Markov process through the states
+<!--l. 246--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><msub><mrow 
+><mi 
+>S</mi></mrow><mrow 
+><mi 
+>t</mi></mrow></msub 
+></mrow></math>,
+<!--l. 246--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><msub><mrow 
+><mi 
+>I</mi></mrow><mrow 
+><mi 
+>t</mi></mrow></msub 
+></mrow></math> with
+<!--l. 246--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><msub><mrow 
+><mi 
+>S</mi></mrow><mrow 
+><mi 
+>t</mi></mrow></msub 
+> <mo 
+class="MathClass-bin">+</mo> <msub><mrow 
+><mi 
+>I</mi></mrow><mrow 
+><mi 
+>t</mi></mrow></msub 
+> <mo 
+class="MathClass-rel">&#x2264;</mo> <mi 
+>N</mi></mrow></math>. If the population
+is <!--l. 247--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mi 
+>N</mi></mrow></math>, the number
+of states is <!--l. 247--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mi 
+>N</mi><mrow ><mo 
+class="MathClass-open">&#x0028;</mo><mrow><mi 
+>N</mi> <mo 
+class="MathClass-bin">+</mo> <mn>1</mn></mrow><mo 
+class="MathClass-close">&#x0029;</mo></mrow><mo 
+class="MathClass-bin">&#x2215;</mo><mn>2</mn></mrow></math>
+so this is a Markov chain with many states.
+</p>
+   <h4 class="likesubsectionHead"><a 
+ id="x1-7000"></a>Greenwood Model</h4>
+<!--l. 252--><p class="noindent" >The <span 
+class="cmbx-12">Greenwood Model</span>&#x00A0; assumes the number of Infectives in generation
+<!--l. 254--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mi 
+>t</mi></mrow></math>
+is a binomial random variable with parameters
+<!--l. 255--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><msub><mrow 
+><mi 
+>S</mi></mrow><mrow 
+><mi 
+>t</mi></mrow></msub 
+></mrow></math> and infection
+success constant <!--l. 256--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mi 
+>p</mi></mrow></math>,
+not depending on the number of Infectives
+</p><!--l. 258--><p class="indent" >
+                                                                          
+
+                                                                          
+<!--tex4ht:inline--></p><!--l. 258--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="block" >
+<mtable 
+class="multline-star">
+<mtr><mtd 
+class="multline-star"><mi 
+>&#x2119;</mi> <mfenced separators="" 
+open="["  close="]" ><mrow><msub><mrow 
+><mi 
+>I</mi></mrow><mrow 
+><mi 
+>t</mi><mo 
+class="MathClass-bin">+</mo><mn>1</mn></mrow></msub 
+> <mo 
+class="MathClass-rel">=</mo> <msub><mrow 
+><mi 
+>i</mi></mrow><mrow 
+><mi 
+>t</mi><mo 
+class="MathClass-bin">+</mo><mn>1</mn></mrow></msub 
+><mo 
+class="MathClass-rel">&#x2223;</mo><msub><mrow 
+><mi 
+>S</mi></mrow><mrow 
+><mn>0</mn></mrow></msub 
+> <mo 
+class="MathClass-rel">=</mo> <msub><mrow 
+><mi 
+>s</mi></mrow><mrow 
+><mn>0</mn></mrow></msub 
+><mo 
+class="MathClass-punc">,</mo><msub><mrow 
+><mi 
+>I</mi></mrow><mrow 
+><mn>0</mn></mrow></msub 
+> <mo 
+class="MathClass-rel">=</mo> <msub><mrow 
+><mi 
+>i</mi></mrow><mrow 
+><mn>0</mn></mrow></msub 
+><mo 
+class="MathClass-punc">,</mo><mo 
+class="MathClass-op">&#x2026;</mo><mo 
+class="MathClass-punc">,</mo><msub><mrow 
+><mi 
+>S</mi></mrow><mrow 
+><mi 
+>t</mi></mrow></msub 
+> <mo 
+class="MathClass-rel">=</mo> <msub><mrow 
+><mi 
+>s</mi></mrow><mrow 
+><mi 
+>t</mi></mrow></msub 
+><mo 
+class="MathClass-punc">,</mo><msub><mrow 
+><mi 
+>I</mi></mrow><mrow 
+><mi 
+>t</mi></mrow></msub 
+> <mo 
+class="MathClass-rel">=</mo> <msub><mrow 
+><mi 
+>i</mi></mrow><mrow 
+><mi 
+>t</mi></mrow></msub 
+></mrow></mfenced> <mo 
+class="MathClass-rel">=</mo>
+</mtd></mtr><mtr><mtd 
+class="multline-star"><mi 
+>&#x2119;</mi> <mfenced separators="" 
+open="["  close="]" ><mrow><msub><mrow 
+><mi 
+>I</mi></mrow><mrow 
+><mi 
+>t</mi><mo 
+class="MathClass-bin">+</mo><mn>1</mn></mrow></msub 
+> <mo 
+class="MathClass-rel">=</mo> <msub><mrow 
+><mi 
+>i</mi></mrow><mrow 
+><mi 
+>t</mi><mo 
+class="MathClass-bin">+</mo><mn>1</mn></mrow></msub 
+><mo 
+class="MathClass-rel">&#x2223;</mo><msub><mrow 
+><mi 
+>S</mi></mrow><mrow 
+><mi 
+>t</mi></mrow></msub 
+> <mo 
+class="MathClass-rel">=</mo> <msub><mrow 
+><mi 
+>s</mi></mrow><mrow 
+><mi 
+>t</mi></mrow></msub 
+><mo 
+class="MathClass-punc">,</mo><msub><mrow 
+><mi 
+>I</mi></mrow><mrow 
+><mi 
+>t</mi></mrow></msub 
+> <mo 
+class="MathClass-rel">=</mo> <msub><mrow 
+><mi 
+>i</mi></mrow><mrow 
+><mi 
+>t</mi></mrow></msub 
+></mrow></mfenced> <mo 
+class="MathClass-rel">=</mo><mfenced separators="" 
+open="(" close=")"><mfrac linethickness="0.0pt"><mrow>  <msub><mrow 
+><mi 
+>s</mi></mrow><mrow 
+><mi 
+>t</mi></mrow></msub 
+></mrow> 
+<mrow><msub><mrow 
+><mi 
+>i</mi></mrow><mrow 
+><mi 
+>t</mi><mo 
+class="MathClass-bin">+</mo><mn>1</mn></mrow></msub 
+></mrow></mfrac></mfenced><msup><mrow 
+><mi 
+>p</mi></mrow><mrow 
+><msub><mrow 
+><mi 
+>i</mi></mrow><mrow 
+><mi 
+>t</mi><mo 
+class="MathClass-bin">+</mo><mn>1</mn></mrow></msub 
+>
+      </mrow></msup 
+><msup><mrow 
+><mrow ><mo 
+class="MathClass-open">&#x0028;</mo><mrow><mn>1</mn> <mo 
+class="MathClass-bin">&#x2212;</mo> <mi 
+>p</mi></mrow><mo 
+class="MathClass-close">&#x0029;</mo></mrow></mrow><mrow 
+><msub><mrow 
+><mi 
+>s</mi></mrow><mrow 
+><mi 
+>t</mi></mrow></msub 
+><mo 
+class="MathClass-bin">&#x2212;</mo><msub><mrow 
+><mi 
+>i</mi></mrow><mrow 
+><mi 
+>t</mi></mrow></msub 
+>
+       </mrow></msup 
+><mo 
+class="MathClass-punc">.</mo>                        </mtd></mtr></mtable>
+</math>
+<!--l. 263--><p class="nopar" >
+</p><!--l. 265--><p class="indent" >   The &#xFB01;rst equality represents the &#xFB01;rst-order Markov chain assumption.
+Consider the second equality in further detail. At generation
+<!--l. 266--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mi 
+>t</mi></mrow></math> we have
+<!--l. 267--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><msub><mrow 
+><mi 
+>s</mi></mrow><mrow 
+><mi 
+>t</mi></mrow></msub 
+></mrow></math> Susceptibles. To &#xFB01;nd
+the probability that <!--l. 267--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><msub><mrow 
+><mi 
+>i</mi></mrow><mrow 
+><mi 
+>t</mi><mo 
+class="MathClass-bin">+</mo><mn>1</mn></mrow></msub 
+></mrow></math>
+members of this group become Infectives, choose
+<!--l. 268--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><msub><mrow 
+><mi 
+>i</mi></mrow><mrow 
+><mi 
+>t</mi></mrow></msub 
+></mrow></math>
+of the Susceptibles who will become infected. Similarly
+<!--l. 269--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mi 
+>p</mi></mrow></math> is the probability
+that a given Susceptible will become infected in one generation. Thus the probability
+<!--l. 271--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><msub><mrow 
+><mi 
+>i</mi></mrow><mrow 
+><mi 
+>t</mi><mo 
+class="MathClass-bin">+</mo><mn>1</mn></mrow></msub 
+></mrow></math> Susceptibles become
+Infectives is <!--l. 272--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><msup><mrow 
+><mi 
+>p</mi></mrow><mrow 
+><msub><mrow 
+><mi 
+>i</mi></mrow><mrow 
+><mi 
+>t</mi><mo 
+class="MathClass-bin">+</mo><mn>1</mn></mrow></msub 
+></mrow></msup 
+></mrow></math>.
+Note that a Susceptible becoming Infective is a &#x201C;success&#x201D; &#x0028;for the disease,
+not the population&#x0029; in the binomial random variable sense. Remaining a
+Susceptible is a failure in the binomial sense. The transition for the Susceptibles
+is
+</p>
+                                                                          
+
+                                                                          
+   <div class="math-display"><!--l. 276--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="block" ><mrow 
+>
+                                       <msub><mrow 
+><mi 
+>S</mi></mrow><mrow 
+><mi 
+>t</mi><mo 
+class="MathClass-bin">+</mo><mn>1</mn></mrow></msub 
+> <mo 
+class="MathClass-rel">=</mo> <msub><mrow 
+><mi 
+>S</mi></mrow><mrow 
+><mi 
+>t</mi></mrow></msub 
+> <mo 
+class="MathClass-bin">&#x2212;</mo> <msub><mrow 
+><mi 
+>I</mi></mrow><mrow 
+><mi 
+>t</mi><mo 
+class="MathClass-bin">+</mo><mn>1</mn></mrow></msub 
+><mo 
+class="MathClass-punc">.</mo>
+</mrow></math></div>
+<!--l. 278--><p class="nopar" >
+</p><!--l. 280--><p class="indent" >   Because <!--l. 280--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><msub><mrow 
+><mi 
+>I</mi></mrow><mrow 
+><mi 
+>t</mi><mo 
+class="MathClass-bin">+</mo><mn>1</mn></mrow></msub 
+></mrow></math>
+is a binomial random variable
+</p>
+   <div class="math-display"><!--l. 281--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="block" ><mrow 
+>
+                                      <mi 
+>E</mi><mrow ><mo 
+class="MathClass-open">&#x005B;</mo><mrow><msub><mrow 
+><mi 
+>I</mi></mrow><mrow 
+><mi 
+>t</mi><mo 
+class="MathClass-bin">+</mo><mn>1</mn></mrow></msub 
+><mo 
+class="MathClass-rel">&#x2223;</mo><msub><mrow 
+><mi 
+>S</mi></mrow><mrow 
+><mi 
+>t</mi></mrow></msub 
+></mrow><mo 
+class="MathClass-close">&#x005D;</mo></mrow> <mo 
+class="MathClass-rel">=</mo> <mi 
+>p</mi><msub><mrow 
+><mi 
+>S</mi></mrow><mrow 
+><mi 
+>t</mi></mrow></msub 
+><mo 
+class="MathClass-punc">.</mo>
+</mrow></math></div>
+<!--l. 283--><p class="nopar" > This expression gives us the expected number of Infectives at generation
+<!--l. 284--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mi 
+>t</mi> <mo 
+class="MathClass-bin">+</mo> <mn>1</mn></mrow></math>
+given the number of Susceptibles at generation
+<!--l. 284--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mi 
+>t</mi></mrow></math>.
+Extend this idea to say
+                                                                          
+
+                                                                          
+</p><!--tex4ht:inline--><!--l. 288--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="block" ><mtable 
+columnalign="left" class="align-star">
+                <mtr><mtd 
+columnalign="right" class="align-odd"><mi 
+>&#x1D53C;</mi> <mfenced separators="" 
+open="["  close="]" ><mrow><msub><mrow 
+><mi 
+>S</mi></mrow><mrow 
+><mi 
+>t</mi><mo 
+class="MathClass-bin">+</mo><mn>1</mn></mrow></msub 
+><mo 
+class="MathClass-rel">&#x2223;</mo><msub><mrow 
+><mi 
+>S</mi></mrow><mrow 
+><mi 
+>t</mi></mrow></msub 
+></mrow></mfenced> <mo 
+class="MathClass-rel">=</mo> <mi 
+>&#x1D53C;</mi> <mfenced separators="" 
+open="["  close="]" ><mrow><msub><mrow 
+><mi 
+>S</mi></mrow><mrow 
+><mi 
+>t</mi></mrow></msub 
+></mrow></mfenced> <mo 
+class="MathClass-bin">&#x2212;</mo> <mi 
+>&#x1D53C;</mi> <mfenced separators="" 
+open="["  close="]" ><mrow><msub><mrow 
+><mi 
+>I</mi></mrow><mrow 
+><mi 
+>t</mi><mo 
+class="MathClass-bin">+</mo><mn>1</mn></mrow></msub 
+></mrow></mfenced> <mo 
+class="MathClass-rel">=</mo> <mrow ><mo 
+class="MathClass-open">&#x0028;</mo><mrow><mn>1</mn> <mo 
+class="MathClass-bin">&#x2212;</mo> <mi 
+>p</mi></mrow><mo 
+class="MathClass-close">&#x0029;</mo></mrow><msub><mrow 
+><mi 
+>S</mi></mrow><mrow 
+><mi 
+>t</mi></mrow></msub 
+><mo 
+class="MathClass-punc">.</mo></mtd>                <mtd 
+class="align-even"><mspace width="2em"/></mtd>                <mtd 
+columnalign="right" class="align-label">
+   </mtd></mtr></mtable></math>
+<!--l. 289--><p class="noindent" >By induction
+</p><!--tex4ht:inline--><!--l. 293--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="block" ><mtable 
+columnalign="left" class="align-star">
+                      <mtr><mtd 
+columnalign="right" class="align-odd"><mi 
+>&#x1D53C;</mi> <mfenced separators="" 
+open="["  close="]" ><mrow><msub><mrow 
+><mi 
+>S</mi></mrow><mrow 
+><mi 
+>t</mi></mrow></msub 
+><mo 
+class="MathClass-rel">&#x2223;</mo><msub><mrow 
+><mi 
+>S</mi></mrow><mrow 
+><mn>0</mn></mrow></msub 
+> <mo 
+class="MathClass-rel">=</mo> <msub><mrow 
+><mi 
+>s</mi></mrow><mrow 
+><mn>0</mn></mrow></msub 
+></mrow></mfenced></mtd>                      <mtd 
+class="align-even"> <mo 
+class="MathClass-rel">=</mo> <msup><mrow 
+><mrow ><mo 
+class="MathClass-open">&#x0028;</mo><mrow><mn>1</mn> <mo 
+class="MathClass-bin">&#x2212;</mo> <mi 
+>p</mi></mrow><mo 
+class="MathClass-close">&#x0029;</mo></mrow></mrow><mrow 
+><mi 
+>t</mi></mrow></msup 
+><msub><mrow 
+><mi 
+>s</mi></mrow><mrow 
+>
+<mn>0</mn></mrow></msub 
+><mo 
+class="MathClass-punc">,</mo><mspace width="2em"/></mtd>                         <mtd 
+columnalign="right" class="align-label"></mtd>                      <mtd 
+class="align-label">
+                      <mspace width="2em"/></mtd></mtr><mtr><mtd 
+columnalign="right" class="align-odd"><mi 
+>&#x1D53C;</mi> <mfenced separators="" 
+open="["  close="]" ><mrow><msub><mrow 
+><mi 
+>I</mi></mrow><mrow 
+><mi 
+>t</mi></mrow></msub 
+><mo 
+class="MathClass-rel">&#x2223;</mo><msub><mrow 
+><mi 
+>S</mi></mrow><mrow 
+><mn>0</mn></mrow></msub 
+> <mo 
+class="MathClass-rel">=</mo> <msub><mrow 
+><mi 
+>s</mi></mrow><mrow 
+><mn>0</mn></mrow></msub 
+></mrow></mfenced></mtd>                      <mtd 
+class="align-even"> <mo 
+class="MathClass-rel">=</mo> <mi 
+>p</mi><msup><mrow 
+><mrow ><mo 
+class="MathClass-open">&#x0028;</mo><mrow><mn>1</mn> <mo 
+class="MathClass-bin">&#x2212;</mo> <mi 
+>p</mi></mrow><mo 
+class="MathClass-close">&#x0029;</mo></mrow></mrow><mrow 
+><mi 
+>t</mi><mo 
+class="MathClass-bin">&#x2212;</mo><mn>1</mn></mrow></msup 
+><msub><mrow 
+><mi 
+>s</mi></mrow><mrow 
+>
+<mn>0</mn></mrow></msub 
+><mo 
+class="MathClass-punc">.</mo><mspace width="2em"/></mtd>                      <mtd 
+columnalign="right" class="align-label"></mtd>                      <mtd 
+class="align-label">
+   <mspace width="2em"/></mtd></mtr></mtable></math>
+<!--l. 295--><p class="noindent" >
+</p>
+   <h4 class="likesubsectionHead"><a 
+ id="x1-8000"></a>Reed-Frost Model</h4>
+<!--l. 297--><p class="noindent" >The Reed&#x2013;Frost model is an SIR mathematical model of epidemics created in the
+1920s by Lowell Reed and Wade Hampton Frost at Johns Hopkins University.
+Originally presented in a talk by Frost in 1928 and used in courses at Hopkins for
+two decades, the mathematical formulation was not published until the
+1950s.
+</p><!--l. 303--><p class="indent" >   The Greenwood model has a &#xFB01;xed probability of infection, independent of the
+number of Infectives at the current generation step. The <span 
+class="cmbx-12">Reed-Frost model</span>&#x00A0;
+includes an infective size dependency which the Greenwood model lacks. The
+Reed&#x2013;Frost model is based on the following assumptions:
+                                                                          
+
+                                                                          
+      </p><dl class="enumerate-enumitem"><dt class="enumerate-enumitem">
+   1. </dt><dd 
+class="enumerate-enumitem">The infection is spread directly from Infectives to Susceptibles by a
+      certain type of contact &#x0028;termed &#x201C;adequate contact&#x201D;&#x0029; and in no other
+      way.
+      </dd><dt class="enumerate-enumitem">
+   2. </dt><dd 
+class="enumerate-enumitem">Any Susceptible in the group, after such contact with an Infective in
+      a given generation, will develop the infection and will be infectious
+      to others only within the following generation period; in subsequent
+      generation periods, the individual is wholly and permanently immune
+      and moves to the Removed class.
+      </dd><dt class="enumerate-enumitem">
+   3. </dt><dd 
+class="enumerate-enumitem">Each individual has a &#xFB01;xed probability <!--l. 322--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mi 
+>p</mi></mrow></math>
+      of coming into adequate contact with any other speci&#xFB01;ed individual in
+      the group within one time interval, and this probability is the same for
+      every member of the group.
+      </dd><dt class="enumerate-enumitem">
+   4. </dt><dd 
+class="enumerate-enumitem">The individuals are wholly segregated from others outside the group.
+      &#x0028;It is a closed population with no births, immigration or emigration.&#x0029;
+      </dd><dt class="enumerate-enumitem">
+   5. </dt><dd 
+class="enumerate-enumitem">These conditions stay constant during the epidemic.</dd></dl>
+<!--l. 333--><p class="noindent" >Set the following initial parameters: </p>
+      <ul class="itemize1">
+      <li class="itemize">size of the population <!--l. 336--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mi 
+>N</mi></mrow></math>,
+      </li>
+      <li class="itemize">number of individuals already immune, typically <!--l. 338--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mn>0</mn></mrow></math>,
+      </li>
+      <li class="itemize">number of Infective cases, usually set at <!--l. 340--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mn>1</mn></mrow></math>,
+      </li>
+      <li class="itemize">probability <!--l. 342--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mi 
+>p</mi></mrow></math>
+      of adequate contact.</li></ul>
+                                                                          
+
+                                                                          
+<!--l. 344--><p class="noindent" >If <!--l. 344--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mi 
+>p</mi></mrow></math>
+is the probability of a given Susceptible <span 
+class="cmti-12">making adequate contact </span>with
+<!--l. 345--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mn>1</mn></mrow></math> speci&#xFB01;c
+Infective, then <!--l. 345--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mi 
+>q</mi> <mo 
+class="MathClass-rel">=</mo> <mn>1</mn> <mo 
+class="MathClass-bin">&#x2212;</mo> <mi 
+>p</mi></mrow></math>
+is the probability of <span 
+class="cmti-12">avoiding </span>contact with that infective. Make the &#x0028;vastly
+simplifying and probably unjusti&#xFB01;ed&#x0029; assumption that all interactions
+of the Susceptible with all Infectives are independent events. Then
+<!--l. 349--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><msup><mrow 
+><mi 
+>q</mi></mrow><mrow 
+><msub><mrow 
+><mi 
+>i</mi></mrow><mrow 
+><mi 
+>t</mi></mrow></msub 
+></mrow></msup 
+></mrow></math>
+is the probability the given Susceptible at generation
+<!--l. 350--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mi 
+>t</mi></mrow></math> avoids adequate
+contact at generation <!--l. 350--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mi 
+>t</mi></mrow></math>
+from <span 
+class="cmti-12">all </span>Infectives in the population at that generation and remains Susceptible at
+generation <!--l. 352--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mi 
+>t</mi> <mo 
+class="MathClass-bin">+</mo> <mn>1</mn></mrow></math>.
+This is a failure for the epidemic in the binomial random variable
+sense. The probability of a Susceptible being infected is then
+<!--l. 354--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mrow ><mo 
+class="MathClass-open">&#x0028;</mo><mrow><mn>1</mn> <mo 
+class="MathClass-bin">&#x2212;</mo> <msup><mrow 
+><mi 
+>q</mi></mrow><mrow 
+><msub><mrow 
+><mi 
+>i</mi></mrow><mrow 
+><mi 
+>t</mi></mrow></msub 
+></mrow></msup 
+></mrow><mo 
+class="MathClass-close">&#x0029;</mo></mrow></mrow></math>, a
+success for the epidemic. Then as a binomial random variable, the probability of
+the number of Infectives in the next generation is
+</p>
+   <div class="math-display"><!--l. 357--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="block" ><mrow 
+>
+          <mi 
+>&#x2119;</mi> <mfenced separators="" 
+open="["  close="]" ><mrow><msub><mrow 
+><mi 
+>I</mi></mrow><mrow 
+><mi 
+>t</mi><mo 
+class="MathClass-bin">+</mo><mn>1</mn></mrow></msub 
+> <mo 
+class="MathClass-rel">=</mo> <msub><mrow 
+><mi 
+>i</mi></mrow><mrow 
+><mi 
+>t</mi><mo 
+class="MathClass-bin">+</mo><mn>1</mn></mrow></msub 
+><mo 
+class="MathClass-rel">&#x2223;</mo><msub><mrow 
+><mi 
+>S</mi></mrow><mrow 
+><mi 
+>t</mi></mrow></msub 
+> <mo 
+class="MathClass-rel">=</mo> <msub><mrow 
+><mi 
+>s</mi></mrow><mrow 
+><mi 
+>t</mi></mrow></msub 
+><mo 
+class="MathClass-punc">,</mo><msub><mrow 
+><mi 
+>I</mi></mrow><mrow 
+><mi 
+>t</mi></mrow></msub 
+> <mo 
+class="MathClass-rel">=</mo> <msub><mrow 
+><mi 
+>i</mi></mrow><mrow 
+><mi 
+>t</mi></mrow></msub 
+></mrow></mfenced> <mo 
+class="MathClass-rel">=</mo><mfenced separators="" 
+open="(" close=")"><mfrac linethickness="0.0pt"><mrow>  <msub><mrow 
+><mi 
+>s</mi></mrow><mrow 
+><mi 
+>t</mi></mrow></msub 
+></mrow> 
+<mrow><msub><mrow 
+><mi 
+>i</mi></mrow><mrow 
+><mi 
+>t</mi><mo 
+class="MathClass-bin">+</mo><mn>1</mn></mrow></msub 
+></mrow></mfrac></mfenced><msup><mrow 
+>  <mfenced separators="" 
+open="("  close=")" ><mrow><mn>1</mn> <mo 
+class="MathClass-bin">&#x2212;</mo> <mrow ><mo 
+class="MathClass-open">&#x0028;</mo><mrow><mn>1</mn> <mo 
+class="MathClass-bin">&#x2212;</mo> <msup><mrow 
+><mi 
+>q</mi></mrow><mrow 
+><msub><mrow 
+><mi 
+>i</mi></mrow><mrow 
+><mi 
+>t</mi></mrow></msub 
+>
+  </mrow></msup 
+></mrow><mo 
+class="MathClass-close">&#x0029;</mo></mrow></mrow></mfenced> </mrow><mrow 
+><msub><mrow 
+><mi 
+>i</mi></mrow><mrow 
+><mi 
+>t</mi><mo 
+class="MathClass-bin">+</mo><mn>1</mn></mrow></msub 
+>
+      </mrow></msup 
+><msup><mrow 
+> <mfenced separators="" 
+open="("  close=")" ><mrow><msup><mrow 
+><mi 
+>q</mi></mrow><mrow 
+><msub><mrow 
+><mi 
+>i</mi></mrow><mrow 
+><mi 
+>t</mi></mrow></msub 
+>
+  </mrow></msup 
+></mrow></mfenced> </mrow><mrow 
+><msub><mrow 
+><mi 
+>s</mi></mrow><mrow 
+><mi 
+>t</mi></mrow></msub 
+><mo 
+class="MathClass-bin">&#x2212;</mo><msub><mrow 
+><mi 
+>i</mi></mrow><mrow 
+><mi 
+>t</mi></mrow></msub 
+>
+       </mrow></msup 
+>
+</mrow></math></div>
+<!--l. 360--><p class="nopar" > and <!--l. 360--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><msub><mrow 
+><mi 
+>S</mi></mrow><mrow 
+><mi 
+>t</mi><mo 
+class="MathClass-bin">+</mo><mn>1</mn></mrow></msub 
+> <mo 
+class="MathClass-rel">=</mo> <msub><mrow 
+><mi 
+>S</mi></mrow><mrow 
+><mi 
+>t</mi></mrow></msub 
+> <mo 
+class="MathClass-bin">&#x2212;</mo> <msub><mrow 
+><mi 
+>I</mi></mrow><mrow 
+><mi 
+>t</mi><mo 
+class="MathClass-bin">+</mo><mn>1</mn></mrow></msub 
+></mrow></math>.
+In comparison to the Greenwood model, the Reed-Frost model
+gives a higher probability to more new Infectives at generation
+<!--l. 362--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mi 
+>t</mi> <mo 
+class="MathClass-bin">+</mo> <mn>1</mn></mrow></math>
+if there are already a large number Infectives at generation
+<!--l. 363--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mi 
+>t</mi></mrow></math> than
+if there is only a small population of Infectives. The Reed-Frost model has a
+                                                                          
+
+                                                                          
+positive feedback e&#xFB00;ect on infectives.
+</p><!--l. 367--><p class="indent" >   A success for the epidemic is a failure for the Susceptibles and a failure for the
+epidemic is a success for the Susceptibles. Then an alternative expression for the
+Reed-Frost model is
+</p>
+   <div class="math-display"><!--l. 370--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="block" ><mrow 
+>
+              <mi 
+>&#x2119;</mi> <mfenced separators="" 
+open="["  close="]" ><mrow><msub><mrow 
+><mi 
+>S</mi></mrow><mrow 
+><mi 
+>t</mi><mo 
+class="MathClass-bin">+</mo><mn>1</mn></mrow></msub 
+> <mo 
+class="MathClass-rel">=</mo> <msub><mrow 
+><mi 
+>s</mi></mrow><mrow 
+><mi 
+>t</mi><mo 
+class="MathClass-bin">+</mo><mn>1</mn></mrow></msub 
+><mo 
+class="MathClass-rel">&#x2223;</mo><msub><mrow 
+><mi 
+>S</mi></mrow><mrow 
+><mi 
+>t</mi></mrow></msub 
+> <mo 
+class="MathClass-rel">=</mo> <msub><mrow 
+><mi 
+>s</mi></mrow><mrow 
+><mi 
+>t</mi></mrow></msub 
+><mo 
+class="MathClass-punc">,</mo><msub><mrow 
+><mi 
+>I</mi></mrow><mrow 
+><mi 
+>t</mi></mrow></msub 
+> <mo 
+class="MathClass-rel">=</mo> <msub><mrow 
+><mi 
+>i</mi></mrow><mrow 
+><mi 
+>t</mi></mrow></msub 
+></mrow></mfenced> <mo 
+class="MathClass-rel">=</mo><mfenced separators="" 
+open="(" close=")"><mfrac linethickness="0.0pt"><mrow>  <msub><mrow 
+><mi 
+>s</mi></mrow><mrow 
+><mi 
+>t</mi></mrow></msub 
+></mrow> 
+<mrow><msub><mrow 
+><mi 
+>i</mi></mrow><mrow 
+><mi 
+>t</mi><mo 
+class="MathClass-bin">+</mo><mn>1</mn></mrow></msub 
+></mrow></mfrac></mfenced><msup><mrow 
+>  <mfenced separators="" 
+open="("  close=")" ><mrow><msup><mrow 
+><mi 
+>q</mi></mrow><mrow 
+><msub><mrow 
+><mi 
+>i</mi></mrow><mrow 
+><mi 
+>t</mi></mrow></msub 
+>
+  </mrow></msup 
+></mrow></mfenced> </mrow><mrow 
+><msub><mrow 
+><mi 
+>i</mi></mrow><mrow 
+><mi 
+>t</mi><mo 
+class="MathClass-bin">+</mo><mn>1</mn></mrow></msub 
+>
+      </mrow></msup 
+><msup><mrow 
+> <mfenced separators="" 
+open="("  close=")" ><mrow><mn>1</mn> <mo 
+class="MathClass-bin">&#x2212;</mo> <msup><mrow 
+><mi 
+>q</mi></mrow><mrow 
+><msub><mrow 
+><mi 
+>i</mi></mrow><mrow 
+><mi 
+>t</mi></mrow></msub 
+>
+  </mrow></msup 
+></mrow></mfenced> </mrow><mrow 
+><msub><mrow 
+><mi 
+>s</mi></mrow><mrow 
+><mi 
+>t</mi></mrow></msub 
+><mo 
+class="MathClass-bin">&#x2212;</mo><msub><mrow 
+><mi 
+>i</mi></mrow><mrow 
+><mi 
+>t</mi></mrow></msub 
+>
+       </mrow></msup 
+>
+</mrow></math></div>
+<!--l. 373--><p class="nopar" > and <!--l. 373--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><msub><mrow 
+><mi 
+>S</mi></mrow><mrow 
+><mi 
+>t</mi><mo 
+class="MathClass-bin">+</mo><mn>1</mn></mrow></msub 
+> <mo 
+class="MathClass-rel">=</mo> <msub><mrow 
+><mi 
+>S</mi></mrow><mrow 
+><mi 
+>t</mi></mrow></msub 
+> <mo 
+class="MathClass-bin">&#x2212;</mo> <msub><mrow 
+><mi 
+>S</mi></mrow><mrow 
+><mi 
+>t</mi><mo 
+class="MathClass-bin">+</mo><mn>1</mn></mrow></msub 
+></mrow></math>.
+</p><!--l. 375--><p class="indent" >   De&#xFB01;ne the <span 
+class="cmbx-12">extinction time </span><!--l. 375--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mi 
+>&#x03C4;</mi></mrow></math>
+<span 
+class="cmbx-12">of an epidemic </span>to be the generation at which
+<!--l. 376--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><msub><mrow 
+><mi 
+>i</mi></mrow><mrow 
+><mi 
+>t</mi></mrow></msub 
+></mrow></math> is &#xFB01;rst zero.
+This is an absorbing state for the Markov Chain. Note that if the number of Susceptibles
+becomes <!--l. 377--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mn>0</mn></mrow></math> in a
+generation <!--l. 378--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mi 
+>t</mi></mrow></math>, then
+<!--l. 378--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><msub><mrow 
+><mi 
+>i</mi></mrow><mrow 
+><mi 
+>t</mi><mo 
+class="MathClass-bin">+</mo><mn>1</mn></mrow></msub 
+> <mo 
+class="MathClass-rel">=</mo> <mn>0</mn></mrow></math>. Of more interest
+is the probability <!--l. 379--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><msub><mrow 
+><mi 
+>S</mi></mrow><mrow 
+><mi 
+>&#x03C4;</mi></mrow></msub 
+> <mo 
+class="MathClass-rel">&#x003E;</mo> <mn>0</mn></mrow></math>
+and <!--l. 379--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><msub><mrow 
+><mi 
+>I</mi></mrow><mrow 
+><mi 
+>&#x03C4;</mi></mrow></msub 
+> <mo 
+class="MathClass-rel">=</mo> <mn>0</mn></mrow></math>.
+Consider an epidemic for which the Infectives have progressed to extinction
+<!--l. 380--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><msub><mrow 
+><mi 
+>i</mi></mrow><mrow 
+><mn>1</mn></mrow></msub 
+><mo 
+class="MathClass-punc">,</mo><msub><mrow 
+><mi 
+>i</mi></mrow><mrow 
+><mn>2</mn></mrow></msub 
+><mo 
+class="MathClass-punc">,</mo><mo 
+class="MathClass-op">&#x2026;</mo><mo 
+class="MathClass-punc">,</mo><msub><mrow 
+><mi 
+>i</mi></mrow><mrow 
+><mi 
+>&#x03C4;</mi><mo 
+class="MathClass-bin">&#x2212;</mo><mn>1</mn></mrow></msub 
+><mo 
+class="MathClass-punc">,</mo><msub><mrow 
+><mi 
+>i</mi></mrow><mrow 
+><mi 
+>&#x03C4;</mi></mrow></msub 
+> <mo 
+class="MathClass-rel">=</mo> <mn>0</mn></mrow></math>. Note
+that <!--l. 381--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><msub><mrow 
+><mi 
+>i</mi></mrow><mrow 
+><mi 
+>&#x03C4;</mi><mo 
+class="MathClass-bin">&#x2212;</mo><mn>1</mn></mrow></msub 
+> <mo 
+class="MathClass-rel">&#x003E;</mo> <mn>0</mn></mrow></math>.
+Thus
+                                                                          
+
+                                                                          
+<!--tex4ht:inline--></p><!--l. 383--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="block" >
+<mtable 
+class="multline-star">
+<mtr><mtd 
+class="multline-star"><mi 
+>&#x2119;</mi> <mfenced separators="" 
+open="["  close="]" ><mrow><msub><mrow 
+><mi 
+>I</mi></mrow><mrow 
+><mn>1</mn></mrow></msub 
+> <mo 
+class="MathClass-rel">=</mo> <msub><mrow 
+><mi 
+>i</mi></mrow><mrow 
+><mn>1</mn></mrow></msub 
+><mo 
+class="MathClass-punc">,</mo><mo 
+class="MathClass-op">&#x2026;</mo><mo 
+class="MathClass-punc">,</mo><msub><mrow 
+><mi 
+>I</mi></mrow><mrow 
+><mi 
+>k</mi></mrow></msub 
+> <mo 
+class="MathClass-rel">=</mo> <msub><mrow 
+><mi 
+>i</mi></mrow><mrow 
+><mi 
+>k</mi></mrow></msub 
+><mo 
+class="MathClass-punc">,</mo><msub><mrow 
+><mi 
+>I</mi></mrow><mrow 
+><mi 
+>k</mi><mo 
+class="MathClass-bin">+</mo><mn>1</mn></mrow></msub 
+> <mo 
+class="MathClass-rel">=</mo> <mn>0</mn><mo 
+class="MathClass-rel">&#x2223;</mo><msub><mrow 
+><mi 
+>S</mi></mrow><mrow 
+><mn>0</mn></mrow></msub 
+> <mo 
+class="MathClass-rel">=</mo> <mi 
+>n</mi><mo 
+class="MathClass-punc">,</mo><msub><mrow 
+><mi 
+>I</mi></mrow><mrow 
+><mn>0</mn></mrow></msub 
+> <mo 
+class="MathClass-rel">=</mo> <mi 
+>m</mi></mrow></mfenced> <mo 
+class="MathClass-rel">=</mo>
+</mtd></mtr><mtr><mtd 
+class="multline-star"><mi 
+>&#x2119;</mi> <mfenced separators="" 
+open="["  close="]" ><mrow><msub><mrow 
+><mi 
+>I</mi></mrow><mrow 
+><mn>1</mn></mrow></msub 
+> <mo 
+class="MathClass-rel">=</mo> <msub><mrow 
+><mi 
+>i</mi></mrow><mrow 
+><mn>1</mn></mrow></msub 
+><mo 
+class="MathClass-rel">&#x2223;</mo><msub><mrow 
+><mi 
+>S</mi></mrow><mrow 
+><mn>0</mn></mrow></msub 
+> <mo 
+class="MathClass-rel">=</mo> <mi 
+>n</mi><mo 
+class="MathClass-punc">,</mo><msub><mrow 
+><mi 
+>I</mi></mrow><mrow 
+><mn>0</mn></mrow></msub 
+> <mo 
+class="MathClass-rel">=</mo> <mi 
+>m</mi></mrow></mfenced> <mo 
+class="MathClass-bin">&#x00D7;</mo> <mi 
+>&#x2119;</mi> <mfenced separators="" 
+open="["  close="]" ><mrow><msub><mrow 
+><mi 
+>I</mi></mrow><mrow 
+><mn>2</mn></mrow></msub 
+> <mo 
+class="MathClass-rel">=</mo> <msub><mrow 
+><mi 
+>i</mi></mrow><mrow 
+><mn>2</mn></mrow></msub 
+><mo 
+class="MathClass-rel">&#x2223;</mo><msub><mrow 
+><mi 
+>S</mi></mrow><mrow 
+><mn>1</mn></mrow></msub 
+> <mo 
+class="MathClass-rel">=</mo> <mi 
+>n</mi> <mo 
+class="MathClass-bin">&#x2212;</mo> <msub><mrow 
+><mi 
+>i</mi></mrow><mrow 
+><mn>1</mn></mrow></msub 
+><mo 
+class="MathClass-punc">,</mo><msub><mrow 
+><mi 
+>I</mi></mrow><mrow 
+><mn>1</mn></mrow></msub 
+> <mo 
+class="MathClass-rel">=</mo> <msub><mrow 
+><mi 
+>i</mi></mrow><mrow 
+><mn>1</mn></mrow></msub 
+></mrow></mfenced> <mo 
+class="MathClass-bin">&#x00D7;</mo><mo 
+class="MathClass-rel">&#x22EF;</mo><mo 
+class="MathClass-bin">&#x00D7;</mo>
+</mtd></mtr><mtr><mtd 
+class="multline-star"><mi 
+>&#x2119;</mi> <mfenced separators="" 
+open="["  close="]" ><mrow><msub><mrow 
+><mi 
+>I</mi></mrow><mrow 
+><mi 
+>&#x03C4;</mi></mrow></msub 
+> <mo 
+class="MathClass-rel">=</mo> <mn>0</mn><mo 
+class="MathClass-rel">&#x2223;</mo><msub><mrow 
+><mi 
+>S</mi></mrow><mrow 
+><mi 
+>&#x03C4;</mi><mo 
+class="MathClass-bin">&#x2212;</mo><mn>1</mn></mrow></msub 
+> <mo 
+class="MathClass-rel">=</mo> <msub><mrow 
+><mi 
+>s</mi></mrow><mrow 
+><mi 
+>&#x03C4;</mi><mo 
+class="MathClass-bin">&#x2212;</mo><mn>1</mn></mrow></msub 
+><mo 
+class="MathClass-punc">,</mo><msub><mrow 
+><mi 
+>I</mi></mrow><mrow 
+><mi 
+>&#x03C4;</mi><mo 
+class="MathClass-bin">&#x2212;</mo><mn>1</mn></mrow></msub 
+> <mo 
+class="MathClass-rel">=</mo> <msub><mrow 
+><mi 
+>i</mi></mrow><mrow 
+><mi 
+>&#x03C4;</mi><mo 
+class="MathClass-bin">&#x2212;</mo><mn>1</mn></mrow></msub 
+></mrow></mfenced> <mo 
+class="MathClass-punc">.</mo>                                        </mtd></mtr></mtable>
+</math>
+<!--l. 390--><p class="nopar" >
+</p><!--l. 392--><p class="indent" >   In this speci&#xFB01;c epidemic, the <span 
+class="cmbx-12">total damage </span>of the epidemic is
+<!--l. 392--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mi 
+>K</mi> <mo 
+class="MathClass-rel">=</mo><msubsup><mrow 
+><mo 
+class="MathClass-op"> &#x2211;</mo>
+  <!--nolimits--></mrow><mrow 
+><mi 
+>j</mi><mo 
+class="MathClass-rel">=</mo><mn>0</mn></mrow><mrow 
+><mi 
+>&#x03C4;</mi></mrow></msubsup 
+><msub><mrow 
+><mi 
+>I</mi></mrow><mrow 
+>
+<mi 
+>j</mi></mrow></msub 
+></mrow></math>. As
+<!--l. 393--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mi 
+>K</mi></mrow></math> is the sum
+of <!--l. 393--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><msub><mrow 
+><mi 
+>I</mi></mrow><mrow 
+><mi 
+>i</mi></mrow></msub 
+></mrow></math>&#x2019;s,
+we can treat it as a random variable. Thus consider:
+</p>
+   <div class="math-display"><!--l. 395--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="block" ><mrow 
+>
+<mi 
+>&#x2119;</mi> <mfenced separators="" 
+open="["  close="]" ><mrow><mi 
+>K</mi> <mo 
+class="MathClass-rel">=</mo> <mi 
+>k</mi><mo 
+class="MathClass-rel">&#x2223;</mo><msub><mrow 
+><mi 
+>S</mi></mrow><mrow 
+><mn>0</mn></mrow></msub 
+> <mo 
+class="MathClass-rel">=</mo> <mi 
+>n</mi><mo 
+class="MathClass-punc">,</mo><msub><mrow 
+><mi 
+>I</mi></mrow><mrow 
+><mn>0</mn></mrow></msub 
+> <mo 
+class="MathClass-rel">=</mo> <mi 
+>m</mi></mrow></mfenced> <mo 
+class="MathClass-rel">=</mo><munder class="msub"><mrow 
+><mo mathsize="big" 
+> &#x2211;</mo>
+   </mrow><mrow 
+><mover 
+accent="true"><mrow 
+><mi 
+>i</mi></mrow><mo>&#x2192;</mo></mover><mo 
+class="MathClass-punc">:</mo><mo 
+class="MathClass-rel">&#x007C;</mo><mover 
+accent="true"><mrow 
+><mo 
+class="MathClass-rel">&#x007C;</mo></mrow><mo>&#x2192;</mo></mover><mi 
+>i</mi><mo 
+class="MathClass-rel">=</mo><mi 
+>k</mi></mrow></munder 
+><mi 
+>&#x2119;</mi> <mfenced separators="" 
+open="["  close="]" ><mrow><msub><mrow 
+><mi 
+>I</mi></mrow><mrow 
+><mn>1</mn></mrow></msub 
+> <mo 
+class="MathClass-rel">=</mo> <msub><mrow 
+><mi 
+>i</mi></mrow><mrow 
+><mn>1</mn></mrow></msub 
+><mo 
+class="MathClass-punc">,</mo><mo>&#x2026;</mo><mo 
+class="MathClass-punc">,</mo><msub><mrow 
+><mi 
+>I</mi></mrow><mrow 
+><mi 
+>&#x03C4;</mi></mrow></msub 
+> <mo 
+class="MathClass-rel">=</mo> <mn>0</mn><mo 
+class="MathClass-rel">&#x2223;</mo><msub><mrow 
+><mi 
+>S</mi></mrow><mrow 
+><mn>0</mn></mrow></msub 
+> <mo 
+class="MathClass-rel">=</mo> <mi 
+>n</mi><mo 
+class="MathClass-punc">,</mo><msub><mrow 
+><mi 
+>I</mi></mrow><mrow 
+><mn>0</mn></mrow></msub 
+> <mo 
+class="MathClass-rel">=</mo> <mi 
+>m</mi></mrow></mfenced><mo 
+class="MathClass-punc">.</mo>
+</mrow></math></div>
+<!--l. 398--><p class="nopar" > Some common asymptotics apply here. Let
+<!--l. 398--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mi 
+>m</mi> <mo 
+class="MathClass-rel">=</mo> <msub><mrow 
+><mi 
+>i</mi></mrow><mrow 
+><mn>0</mn></mrow></msub 
+> <mo 
+class="MathClass-rel">=</mo> <mi 
+>o</mi><mrow ><mo 
+class="MathClass-open">&#x0028;</mo><mrow><mi 
+>n</mi></mrow><mo 
+class="MathClass-close">&#x0029;</mo></mrow></mrow></math> and
+suppose <!--l. 399--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mi 
+>q</mi> <mo 
+class="MathClass-rel">=</mo><msup><mrow 
+> <mi mathvariant="normal">e</mi></mrow><mrow 
+><mo 
+class="MathClass-bin">&#x2212;</mo><mi 
+>&#x03BB;</mi><mo 
+class="MathClass-bin">&#x2215;</mo><mi 
+>n</mi></mrow></msup 
+></mrow></math> so
+<!--l. 399--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mi 
+>p</mi> <mo 
+class="MathClass-rel">=</mo> <mn>1</mn> <mo 
+class="MathClass-bin">&#x2212;</mo> <mi 
+>q</mi> <mo 
+class="MathClass-rel">=</mo> <mi 
+>O</mi><mrow ><mo 
+class="MathClass-open">&#x0028;</mo><mrow><msup><mrow 
+><mi 
+>n</mi></mrow><mrow 
+><mo 
+class="MathClass-bin">&#x2212;</mo><mn>1</mn></mrow></msup 
+></mrow><mo 
+class="MathClass-close">&#x0029;</mo></mrow></mrow></math> and the expected number
+of adequate contacts <!--l. 400--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><msup><mrow 
+><mi 
+>q</mi></mrow><mrow 
+><msub><mrow 
+><mi 
+>i</mi></mrow><mrow 
+><mi 
+>t</mi></mrow></msub 
+></mrow></msup 
+></mrow></math>
+                                                                          
+
+                                                                          
+is approximately constant. At the beginning of the epidemic, using the &#xFB01;rst
+formulation of the Reed-Frost model
+</p><!--tex4ht:inline--><!--l. 413--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="block" ><mtable 
+columnalign="left" class="align-star">
+                       <mtr><mtd 
+columnalign="right" class="align-odd"><mi 
+>&#x2119;</mi> <mfenced separators="" 
+open="["  close="]" ><mrow><msub><mrow 
+><mi 
+>I</mi></mrow><mrow 
+><mi 
+>t</mi><mo 
+class="MathClass-bin">+</mo><mn>1</mn></mrow></msub 
+></mrow></mfenced></mtd>                       <mtd 
+class="align-even"> <mo 
+class="MathClass-rel">=</mo><mo class="qopname"> Bin</mo><!--nolimits--><mrow ><mo 
+class="MathClass-open">&#x0028;</mo><mrow><msub><mrow 
+><mi 
+>S</mi></mrow><mrow 
+><mi 
+>t</mi></mrow></msub 
+><mo 
+class="MathClass-punc">,</mo> <mn>1</mn> <mo 
+class="MathClass-bin">&#x2212;</mo><msup><mrow 
+><mi mathvariant="normal">e</mi></mrow><mrow 
+><mo 
+class="MathClass-bin">&#x2212;</mo><mi 
+>&#x03BB;</mi><msub><mrow 
+><mi 
+>I</mi></mrow><mrow 
+><mi 
+>t</mi></mrow></msub 
+><mo 
+class="MathClass-bin">&#x2215;</mo><mi 
+>n</mi></mrow></msup 
+></mrow><mo 
+class="MathClass-close">&#x0029;</mo></mrow><mspace width="2em"/></mtd>                       <mtd 
+columnalign="right" class="align-label"></mtd>                       <mtd 
+class="align-label">
+                       <mspace width="2em"/></mtd></mtr><mtr><mtd 
+columnalign="right" class="align-odd"></mtd>                             <mtd 
+class="align-even"> <mo 
+class="MathClass-rel">&#x2248;</mo><mo class="qopname"> Bin</mo><!--nolimits--><mrow ><mo 
+class="MathClass-open">&#x0028;</mo><mrow><mi 
+>n</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>&#x03BB;</mi><msub><mrow 
+><mi 
+>I</mi></mrow><mrow 
+><mi 
+>t</mi></mrow></msub 
+><mo 
+class="MathClass-bin">&#x2215;</mo><mi 
+>n</mi></mrow><mo 
+class="MathClass-close">&#x0029;</mo></mrow><mspace width="2em"/></mtd>                             <mtd 
+columnalign="right" class="align-label"></mtd>                       <mtd 
+class="align-label">
+                       <mspace width="2em"/></mtd></mtr><mtr><mtd 
+columnalign="right" class="align-odd"></mtd>                             <mtd 
+class="align-even"> <mo 
+class="MathClass-rel">&#x2248;</mo><mo class="qopname"> Poisson</mo><!--nolimits--><mrow ><mo 
+class="MathClass-open">&#x0028;</mo><mrow><mi 
+>&#x03BB;</mi><msub><mrow 
+><mi 
+>I</mi></mrow><mrow 
+><mi 
+>t</mi></mrow></msub 
+></mrow><mo 
+class="MathClass-close">&#x0029;</mo></mrow><mspace width="2em"/></mtd>                              <mtd 
+columnalign="right" class="align-label"></mtd>                       <mtd 
+class="align-label">
+   <mspace width="2em"/></mtd></mtr></mtable></math>
+<!--l. 414--><p class="noindent" >This means <!--l. 414--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><msub><mrow 
+><mi 
+>I</mi></mrow><mrow 
+><mi 
+>t</mi><mo 
+class="MathClass-bin">+</mo><mn>1</mn></mrow></msub 
+></mrow></math>
+is the sum of <!--l. 414--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><msub><mrow 
+><mi 
+>I</mi></mrow><mrow 
+><mi 
+>t</mi></mrow></msub 
+></mrow></math>
+independent Poisson random variables with parameter
+<!--l. 415--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mi 
+>&#x03BB;</mi></mrow></math>. That is,
+the number of Infectives is the result of a Galton-Watson process or branching process.
+Then from the standard theory for branching processes, the epidemic is <span 
+class="cmti-12">subcritical</span>
+if <!--l. 418--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mi 
+>&#x03BB;</mi> <mo 
+class="MathClass-rel">&#x2264;</mo> <mn>1</mn></mrow></math> and
+<span 
+class="cmti-12">supercritical </span>if <!--l. 419--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mi 
+>&#x03BB;</mi> <mo 
+class="MathClass-rel">&#x003E;</mo> <mn>1</mn></mrow></math>.
+That is, the trajectories of this process either die out or explode in an exponential
+way, at least at the beginning of the epidemic while the asymptotic assumptions
+hold. This points to more general stochastic process models of epidemics as
+branching processes. Although the epidemic models are Markov chains, the
+tools of branching processes are more applicable and yield more detailed
+results.
+</p><!--l. 426--><p class="noindent" >
+</p>
+   <h4 class="likesubsectionHead"><a 
+ id="x1-9000"></a>Limitations</h4>
+                                                                          
+
+                                                                          
+<!--l. 428--><p class="noindent" >Both of these models assume a homogeneous population, i.e.&#x00A0;everyone is equally
+likely to get sick assuming the same exposure. Also the Reed-Frost model assumes
+that the population mixes perfectly, that is, every Susceptible interacts with every
+Infective and thus has an equally likely chance to get sick from each one. Both
+models assume independence in these interactions. These assumptions apply best
+to a moderately-sized &#x0028;reasonably&#x0029; closed situations such as a dormitory, a
+nursing home under quarantine, a cruise ship, a factory, or perhaps a small
+town.
+</p><!--l. 438--><p class="indent" >   For large populations such as a city or an entire country, the assumptions of
+homogeneous population and perfect mixing don&#x2019;t apply. Also for large
+populations, direct calculation of the binomial coe&#xFB03;cients at each stage is
+inconvenient, and so using continuum limits is appropriate, leading to di&#xFB00;erential
+equation epidemic models. However, one advantage of the stochastic process
+models is the possibility of obtaining a distribution for the extinction times. This
+is a more realistic property than the asymptotic extinction time given by a
+deterministic model.
+</p><!--l. 448--><p class="indent" >   More detailed models have multiple health and infection classes instead of just
+Infectives. More detailed models may also cross these with factors in&#xFB02;uencing
+mixing, such as age, social class, or geographical location. The mathematical
+modeling of epidemics has a huge literature, the references below are a starting
+point.
+</p><!--l. 454--><p class="indent" >   <img 
+src="../../../../CommonInformation/Lessons/question_mark.png" alt="Section Starter Question"  
+ />
+</p>
+   <h3 class="likesectionHead"><a 
+ id="x1-10000"></a>Section Ending Answer</h3>
+<!--l. 457--><p class="noindent" >One particularly simple model is that the infective transmits the disease to a
+&#xFB01;xed number of susceptibles, this is not probabilistic. A probabilistic
+model is that the infective transmits to each susceptible with probability
+<!--l. 460--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mi 
+>p</mi></mrow></math>, leading
+to the binomial probability distribution of the Greenwood model. A third possibility
+is that the number of infected is a Poisson random variable with parameter
+<!--l. 462--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mi 
+>&#x03BB;</mi></mrow></math>. This
+would be appropriate if the population is large and the transmission rate is
+constant across various size groups of susceptibles.
+                                                                          
+
+                                                                          
+</p><!--l. 467--><p class="noindent" >
+</p>
+   <h4 class="likesubsectionHead"><a 
+ id="x1-11000"></a>Sources</h4>
+<!--l. 469--><p class="noindent" >Details of the Greenwood and Reed-Frost models are adapted from &#x201C;Criticality in
+Epidemic Models&#x201D; by R. Dolgoarshinnykh, <span class="cite">&#x005B;<a 
+href="#Xdolgoarshinnykh">1</a>&#x005D;</span>. Comments on epidemics as
+branching processes and more detailed assumptions for epidemics are from
+&#x201C;Branching Processes: Their Role in Epidemiology&#x201D;, by C. Jacob, <span class="cite">&#x005B;<a 
+href="#Xjacob10">2</a>&#x005D;</span>. See also <span class="cite">&#x005B;<a 
+href="#Xsiettos13">3</a>&#x005D;</span>
+for a survey of mathematical models of infectious diseases. The exercise is adapted
+from the Ohio Supercomputer Center Summer Institute, <a 
+href="https://www.osc.edu/education/si/projects/epidemic" >Reed-Frost Epidemic
+Model</a>..
+</p><!--l. 480--><p class="indent" >   _______________________________________________________________________________________________
+</p><!--l. 482--><p class="indent" >   <img 
+src="../../../../CommonInformation/Lessons/computer.png" alt="Algorithms, Scripts, Simulations"  
+ />
+</p>
+   <h3 class="likesectionHead"><a 
+ id="x1-12000"></a>Algorithms, Scripts, Simulations</h3>
+<!--l. 485--><p class="noindent" >
+</p>
+   <h4 class="likesubsectionHead"><a 
+ id="x1-13000"></a>Algorithm</h4>
+<!--l. 496--><p class="noindent" >
+   </p><dl class="trivlist"><dt class="trivlist">
+</dt><dd 
+class="trivlist">Epidemic models<br 
+class="newline" /> <div class="minipage">
+<table  
+cellpadding="0" border="0" cellspacing="0" 
+class="tabbing"><tr  
+style="vertical-align:baseline;" class="tabbing"><td style="width:17;" 
+class="tabbing"></td><td  
+class="tabbing">   Comment Post: Simulation of epidemics with Greenwood and Reed Frost models</td></tr></table>
+<!--l. 491--><p class="noindent" >                         </p><table  
+cellpadding="0" border="0" cellspacing="0" 
+class="tabbing"><tr  
+style="vertical-align:baseline;" class="tabbing"><td style="width:17;" 
+class="tabbing"></td><td  
+class="tabbing">1   Set initial Susceptibles, Infectives, probability, time</td></tr></table>
+<!--l. 492--><p class="noindent" >                                                                        </p><table  
+cellpadding="0" border="0" cellspacing="0" 
+class="tabbing"><tr  
+style="vertical-align:baseline;" class="tabbing"><td style="width:17;" 
+class="tabbing"></td><td  
+class="tabbing">2   Loop over time</td></tr></table>
+<!--l. 493--><p class="noindent" >                </p><table  
+cellpadding="0" border="0" cellspacing="0" 
+class="tabbing"><tr  
+style="vertical-align:baseline;" class="tabbing"><td style="width:17;" 
+class="tabbing"></td><td  
+class="tabbing">3   Get random binomial variate from number of Susceptibles</td></tr></table>
+<!--l. 494--><p class="noindent" >                                                                </p><table  
+cellpadding="0" border="0" cellspacing="0" 
+class="tabbing"><tr  
+style="vertical-align:baseline;" class="tabbing"><td style="width:17;" 
+class="tabbing"></td><td  
+class="tabbing">4   Update the infectives</td></tr></table>
+<!--l. 495--><p class="noindent" >                         </p><table  
+cellpadding="0" border="0" cellspacing="0" 
+class="tabbing"><tr  
+style="vertical-align:baseline;" class="tabbing"><td style="width:17;" 
+class="tabbing"></td><td  
+class="tabbing">5   <span 
+class="cmbx-12">return </span>Plot of Susceptibles, Infectives versus time.</td></tr></table>
+<!--l. 496--><p class="noindent" >                                                                                                             </p></div></dd></dl>
+   <h4 class="likesubsectionHead"><a 
+ id="x1-14000"></a>Scripts</h4>
+                                                                          
+
+                                                                          
+<!--l. 3--><p class="noindent" >
+      </p><dl class="description"><dt class="description">
+<span 
+class="cmbx-12">R</span> </dt><dd 
+class="description">
+      <!--l. 10--><p class="noindent" ><a 
+href="greenwood.R" >R script for Greenwood model.</a>.
+</p>
+      <!--l. 12-->
+      <div class="lstlisting" id="listing-1"><span class="label"><a 
+ id="x1-14001r1"></a><span 
+class="cmr-6">1</span></span><span 
+class="cmtt-10">S0</span><span 
+class="cmtt-10">&#x00A0;</span><span class="lstinline"></span><span 
+class="cmtt-10">&#x003C;-</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">999</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-14002r2"></a><span 
+class="cmr-6">2</span></span><span 
+class="cmtt-10">I0</span><span 
+class="cmtt-10">&#x00A0;</span><span class="lstinline"></span><span 
+class="cmtt-10">&#x003C;-</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">1</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-14003r3"></a><span 
+class="cmr-6">3</span></span><span 
+class="cmtt-10">p</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span class="lstinline"></span><span 
+class="cmtt-10">&#x003C;-</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">0.2</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-14004r4"></a><span 
+class="cmr-6">4</span></span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-14005r5"></a><span 
+class="cmr-6">5</span></span><span 
+class="cmtt-10">T</span><span 
+class="cmtt-10">&#x00A0;</span><span class="lstinline"></span><span 
+class="cmtt-10">&#x003C;-</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">30</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-14006r6"></a><span 
+class="cmr-6">6</span></span><span 
+class="cmtt-10">S</span><span 
+class="cmtt-10">&#x00A0;</span><span class="lstinline"></span><span 
+class="cmtt-10">&#x003C;-</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">numeric</span><span 
+class="cmtt-10">&#x0028;</span><span 
+class="cmtt-10">T</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">+</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">1&#x0029;</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-14007r7"></a><span 
+class="cmr-6">7</span></span><span 
+class="cmtt-10">I</span><span 
+class="cmtt-10">&#x00A0;</span><span class="lstinline"></span><span 
+class="cmtt-10">&#x003C;-</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">numeric</span><span 
+class="cmtt-10">&#x0028;</span><span 
+class="cmtt-10">T</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">+</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">1&#x0029;</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-14008r8"></a><span 
+class="cmr-6">8</span></span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-14009r9"></a><span 
+class="cmr-6">9</span></span><span 
+class="cmtt-10">S</span><span 
+class="cmtt-10">&#x005B;1&#x005D;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span class="lstinline"></span><span 
+class="cmtt-10">&#x003C;-</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">S0</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-14010r10"></a><span 
+class="cmr-6">10</span></span><span 
+class="cmtt-10">I</span><span 
+class="cmtt-10">&#x005B;1&#x005D;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span class="lstinline"></span><span 
+class="cmtt-10">&#x003C;-</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">I0</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-14011r11"></a><span 
+class="cmr-6">11</span></span><span 
+class="cmtt-10">for</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x0028;</span><span 
+class="cmtt-10">t</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">in</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">2:&#x0028;</span><span 
+class="cmtt-10">T</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">+</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">1&#x0029;</span><span 
+class="cmtt-10">&#x0029;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x007B;</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-14012r12"></a><span 
+class="cmr-6">12</span></span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">I</span><span 
+class="cmtt-10">&#x005B;</span><span 
+class="cmtt-10">t</span><span 
+class="cmtt-10">&#x005D;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span class="lstinline"></span><span 
+class="cmtt-10">&#x003C;-</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">rbinom</span><span 
+class="cmtt-10">&#x0028;1,</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">size</span><span 
+class="cmtt-10">=</span><span 
+class="cmtt-10">S</span><span 
+class="cmtt-10">&#x005B;</span><span 
+class="cmtt-10">t</span><span 
+class="cmtt-10">-1&#x005D;,</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">prob</span><span 
+class="cmtt-10">=</span><span 
+class="cmtt-10">p</span><span 
+class="cmtt-10">&#x0029;</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-14013r13"></a><span 
+class="cmr-6">13</span></span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">S</span><span 
+class="cmtt-10">&#x005B;</span><span 
+class="cmtt-10">t</span><span 
+class="cmtt-10">&#x005D;</span><span 
+class="cmtt-10">&#x00A0;</span><span class="lstinline"></span><span 
+class="cmtt-10">&#x003C;-</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">S</span><span 
+class="cmtt-10">&#x005B;</span><span 
+class="cmtt-10">t</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">-</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">1&#x005D;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">-</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">I</span><span 
+class="cmtt-10">&#x005B;</span><span 
+class="cmtt-10">t</span><span 
+class="cmtt-10">&#x005D;</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-14014r14"></a><span 
+class="cmr-6">14</span></span><span 
+class="cmtt-10">&#x007D;</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-14015r15"></a><span 
+class="cmr-6">15</span></span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-14016r16"></a><span 
+class="cmr-6">16</span></span><span 
+class="cmtt-10">plot</span><span 
+class="cmtt-10">&#x0028;1:&#x0028;</span><span 
+class="cmtt-10">T</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">+</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">1&#x0029;</span><span 
+class="cmtt-10">,</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">S</span><span 
+class="cmtt-10">,</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">col</span><span 
+class="cmtt-10">=</span><span 
+class="cmtt-10">&#x0022;</span><span 
+class="cmtt-10">blue</span><span 
+class="cmtt-10">&#x0022;</span><span 
+class="cmtt-10">,</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-14017r17"></a><span 
+class="cmr-6">17</span></span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">xlim</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">=</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">c</span><span 
+class="cmtt-10">&#x0028;0,</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x0028;</span><span 
+class="cmtt-10">T</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">+</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">1&#x0029;</span><span 
+class="cmtt-10">&#x0029;</span><span 
+class="cmtt-10">,</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">ylim</span><span 
+class="cmtt-10">=</span><span 
+class="cmtt-10">c</span><span 
+class="cmtt-10">&#x0028;0,</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x0028;</span><span 
+class="cmtt-10">S0</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">+</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">I0</span><span 
+class="cmtt-10">&#x0029;</span><span 
+class="cmtt-10">&#x0029;</span><span 
+class="cmtt-10">,</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-14018r18"></a><span 
+class="cmr-6">18</span></span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">main</span><span 
+class="cmtt-10">=</span><span 
+class="cmtt-10">&#x0022;</span><span 
+class="cmtt-10">Greenwood</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">Epidemic</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">Model</span><span 
+class="cmtt-10">&#x0022;</span><span 
+class="cmtt-10">,</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-14019r19"></a><span 
+class="cmr-6">19</span></span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">xlab</span><span 
+class="cmtt-10">=</span><span 
+class="cmtt-10">&#x0022;</span><span 
+class="cmtt-10">Time</span><span 
+class="cmtt-10">&#x0022;</span><span 
+class="cmtt-10">,</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">ylab</span><span 
+class="cmtt-10">=</span><span 
+class="cmtt-10">&#x0022;</span><span 
+class="cmtt-10">S</span><span 
+class="cmtt-10">,</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">I</span><span 
+class="cmtt-10">&#x0022;</span><span 
+class="cmtt-10">&#x0029;</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-14020r20"></a><span 
+class="cmr-6">20</span></span><span 
+class="cmtt-10">points</span><span 
+class="cmtt-10">&#x0028;1:&#x0028;</span><span 
+class="cmtt-10">T</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">+</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">1&#x0029;</span><span 
+class="cmtt-10">,</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">y</span><span 
+class="cmtt-10">=</span><span 
+class="cmtt-10">I</span><span 
+class="cmtt-10">,</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">col</span><span 
+class="cmtt-10">=</span><span 
+class="cmtt-10">&#x0022;</span><span 
+class="cmtt-10">red</span><span 
+class="cmtt-10">&#x0022;</span><span 
+class="cmtt-10">&#x0029;</span>
+      
+      <br />
+         <div class="caption" 
+><span class="id">2cAp1x1-1400021:
+         </span><span  
+class="content"></span></div><!--tex4ht:label?: x1-14000 -->
+      </div>
+      <!--l. 35--><p class="noindent" ><a 
+href="reedfrost.R" >R script for Reed-Frost model.</a>.
+</p>
+      <!--l. 37-->
+      <div class="lstlisting" id="listing-2"><span class="label"><a 
+ id="x1-14021r1"></a><span 
+class="cmr-6">1</span></span><span 
+class="cmtt-10">S0</span><span 
+class="cmtt-10">&#x00A0;</span><span class="lstinline"></span><span 
+class="cmtt-10">&#x003C;-</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">9999</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-14022r2"></a><span 
+class="cmr-6">2</span></span><span 
+class="cmtt-10">I0</span><span 
+class="cmtt-10">&#x00A0;</span><span class="lstinline"></span><span 
+class="cmtt-10">&#x003C;-</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">1</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-14023r3"></a><span 
+class="cmr-6">3</span></span><span 
+class="cmtt-10">p</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span class="lstinline"></span><span 
+class="cmtt-10">&#x003C;-</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">0.00001</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-14024r4"></a><span 
+class="cmr-6">4</span></span><span 
+class="cmtt-10">q</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span class="lstinline"></span><span 
+class="cmtt-10">&#x003C;-</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">1</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">-</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">p</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-14025r5"></a><span 
+class="cmr-6">5</span></span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-14026r6"></a><span 
+class="cmr-6">6</span></span><span 
+class="cmtt-10">T</span><span 
+class="cmtt-10">&#x00A0;</span><span class="lstinline"></span><span 
+class="cmtt-10">&#x003C;-</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">25</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-14027r7"></a><span 
+class="cmr-6">7</span></span><span 
+class="cmtt-10">S</span><span 
+class="cmtt-10">&#x00A0;</span><span class="lstinline"></span><span 
+class="cmtt-10">&#x003C;-</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">numeric</span><span 
+class="cmtt-10">&#x0028;</span><span 
+class="cmtt-10">T</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">+</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">1&#x0029;</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-14028r8"></a><span 
+class="cmr-6">8</span></span><span 
+class="cmtt-10">I</span><span 
+class="cmtt-10">&#x00A0;</span><span class="lstinline"></span><span 
+class="cmtt-10">&#x003C;-</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">numeric</span><span 
+class="cmtt-10">&#x0028;</span><span 
+class="cmtt-10">T</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">+</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">1&#x0029;</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-14029r9"></a><span 
+class="cmr-6">9</span></span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-14030r10"></a><span 
+class="cmr-6">10</span></span><span 
+class="cmtt-10">S</span><span 
+class="cmtt-10">&#x005B;1&#x005D;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span class="lstinline"></span><span 
+class="cmtt-10">&#x003C;-</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">S0</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-14031r11"></a><span 
+class="cmr-6">11</span></span><span 
+class="cmtt-10">I</span><span 
+class="cmtt-10">&#x005B;1&#x005D;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span class="lstinline"></span><span 
+class="cmtt-10">&#x003C;-</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">I0</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-14032r12"></a><span 
+class="cmr-6">12</span></span><span 
+class="cmtt-10">for</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x0028;</span><span 
+class="cmtt-10">t</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">in</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">2:&#x0028;</span><span 
+class="cmtt-10">T</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">+</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">1&#x0029;</span><span 
+class="cmtt-10">&#x0029;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x007B;</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-14033r13"></a><span 
+class="cmr-6">13</span></span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">QT</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">=</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">q</span><span 
+class="cmtt-10">^</span><span 
+class="cmtt-10">I</span><span 
+class="cmtt-10">&#x005B;</span><span 
+class="cmtt-10">t</span><span 
+class="cmtt-10">-1&#x005D;</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-14034r14"></a><span 
+class="cmr-6">14</span></span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">I</span><span 
+class="cmtt-10">&#x005B;</span><span 
+class="cmtt-10">t</span><span 
+class="cmtt-10">&#x005D;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span class="lstinline"></span><span 
+class="cmtt-10">&#x003C;-</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">rbinom</span><span 
+class="cmtt-10">&#x0028;1,</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">size</span><span 
+class="cmtt-10">=</span><span 
+class="cmtt-10">S</span><span 
+class="cmtt-10">&#x005B;</span><span 
+class="cmtt-10">t</span><span 
+class="cmtt-10">-1&#x005D;,</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">prob</span><span 
+class="cmtt-10">=1-</span><span 
+class="cmtt-10">QT</span><span 
+class="cmtt-10">&#x0029;</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-14035r15"></a><span 
+class="cmr-6">15</span></span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">S</span><span 
+class="cmtt-10">&#x005B;</span><span 
+class="cmtt-10">t</span><span 
+class="cmtt-10">&#x005D;</span><span 
+class="cmtt-10">&#x00A0;</span><span class="lstinline"></span><span 
+class="cmtt-10">&#x003C;-</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">S</span><span 
+class="cmtt-10">&#x005B;</span><span 
+class="cmtt-10">t</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">-</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">1&#x005D;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">-</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">I</span><span 
+class="cmtt-10">&#x005B;</span><span 
+class="cmtt-10">t</span><span 
+class="cmtt-10">&#x005D;</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-14036r16"></a><span 
+class="cmr-6">16</span></span><span 
+class="cmtt-10">&#x007D;</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-14037r17"></a><span 
+class="cmr-6">17</span></span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-14038r18"></a><span 
+class="cmr-6">18</span></span><span 
+class="cmtt-10">plot</span><span 
+class="cmtt-10">&#x0028;1:&#x0028;</span><span 
+class="cmtt-10">T</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">+</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">1&#x0029;</span><span 
+class="cmtt-10">,</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">S</span><span 
+class="cmtt-10">,</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">col</span><span 
+class="cmtt-10">=</span><span 
+class="cmtt-10">&#x0022;</span><span 
+class="cmtt-10">blue</span><span 
+class="cmtt-10">&#x0022;</span><span 
+class="cmtt-10">,</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-14039r19"></a><span 
+class="cmr-6">19</span></span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">xlim</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">=</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">c</span><span 
+class="cmtt-10">&#x0028;0,</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x0028;</span><span 
+class="cmtt-10">T</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">+</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">1&#x0029;</span><span 
+class="cmtt-10">&#x0029;</span><span 
+class="cmtt-10">,</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">ylim</span><span 
+class="cmtt-10">=</span><span 
+class="cmtt-10">c</span><span 
+class="cmtt-10">&#x0028;0,</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x0028;</span><span 
+class="cmtt-10">S0</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">+</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">I0</span><span 
+class="cmtt-10">&#x0029;</span><span 
+class="cmtt-10">&#x0029;</span><span 
+class="cmtt-10">,</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-14040r20"></a><span 
+class="cmr-6">20</span></span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">main</span><span 
+class="cmtt-10">=</span><span 
+class="cmtt-10">&#x0022;</span><span 
+class="cmtt-10">Reed</span><span 
+class="cmtt-10">-</span><span 
+class="cmtt-10">Frost</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">Epidemic</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">Model</span><span 
+class="cmtt-10">&#x0022;</span><span 
+class="cmtt-10">,</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-14041r21"></a><span 
+class="cmr-6">21</span></span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">xlab</span><span 
+class="cmtt-10">=</span><span 
+class="cmtt-10">&#x0022;</span><span 
+class="cmtt-10">Time</span><span 
+class="cmtt-10">&#x0022;</span><span 
+class="cmtt-10">,</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">ylab</span><span 
+class="cmtt-10">=</span><span 
+class="cmtt-10">&#x0022;</span><span 
+class="cmtt-10">S</span><span 
+class="cmtt-10">,</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">I</span><span 
+class="cmtt-10">&#x0022;</span><span 
+class="cmtt-10">&#x0029;</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-14042r22"></a><span 
+class="cmr-6">22</span></span><span 
+class="cmtt-10">points</span><span 
+class="cmtt-10">&#x0028;1:&#x0028;</span><span 
+class="cmtt-10">T</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">+</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">1&#x0029;</span><span 
+class="cmtt-10">,</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">y</span><span 
+class="cmtt-10">=</span><span 
+class="cmtt-10">I</span><span 
+class="cmtt-10">,</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">col</span><span 
+class="cmtt-10">=</span><span 
+class="cmtt-10">&#x0022;</span><span 
+class="cmtt-10">red</span><span 
+class="cmtt-10">&#x0022;</span><span 
+class="cmtt-10">&#x0029;</span>
+      
+      <br />
+         <div class="caption" 
+><span class="id">2cAp2x1-1400023:
+         </span><span  
+class="content"></span></div><!--tex4ht:label?: x1-14000 -->
+      </div>
+      </dd></dl>
+<!--l. 501--><p class="noindent" >__________________________________________________________________________
+</p><!--l. 503--><p class="indent" >   <img 
+src="../../../../CommonInformation/Lessons/solveproblems.png" alt="Problems to Work"  
+ />
+</p>
+   <h3 class="likesectionHead"><a 
+ id="x1-15000"></a>Problems to Work for Understanding</h3>
+<a 
+ id="x1-15001r1"></a>
+   1:  Write a script that simulates a place-based epidemic model. For
+this modi&#xFB01;cation, assume that all the individuals are standing next to
+                                                                          
+
+                                                                          
+each other on a two-dimensional grid. Let one individual be an infective
+case. An infective can now probabilistically infect only his immediate
+neighbors on the grid. In the next time period, those people who got
+sick now have a chance to infect their neighbors and so on. Display on
+a two-dimensional grid that shows all the individuals what state they
+are in &#x0028;i.e., Susceptible, Infective, or Recovered&#x0029;, with an animation if
+possible. Run the script many times with di&#xFB00;erent input parameters.
+How does the pattern of the epidemic &#xFB02;ow change with a&#xFB00;ective contact
+probability?
+<!--l. 522--><p class="noindent" >__________________________________________________________________________
+</p><!--l. 524--><p class="indent" >   <img 
+src="../../../../CommonInformation/Lessons/books.png" alt="Books"  
+ />
+</p>
+   <h3 class="likesectionHead"><a 
+ id="x1-16000"></a>Reading Suggestion:</h3>
+<!--l. 1--><p class="noindent" >
+</p>
+   <h3 class="likesectionHead"><a 
+ id="x1-17000"></a>References</h3>
+<!--l. 1--><p class="noindent" >
+   </p><div class="thebibliography">
+   <p class="bibitem" ><span class="biblabel">
+ &#x005B;1&#x005D;<span class="bibsp">&#x00A0;&#x00A0;&#x00A0;</span></span><a 
+ id="Xdolgoarshinnykh"></a>Regina Dolgoarshinnykh.  Criticality in epidemic models.  accessed
+   April 17, 2020.
+   </p>
+   <p class="bibitem" ><span class="biblabel">
+ &#x005B;2&#x005D;<span class="bibsp">&#x00A0;&#x00A0;&#x00A0;</span></span><a 
+ id="Xjacob10"></a>Christine Jacob. Branching processes: their role in epidemiology. <span 
+class="cmti-12">Int</span>
+   <span 
+class="cmti-12">J Environ Res Public Health</span>, 7&#x0028;3&#x0029;:1186&#x2013;1204, March 2010.
+   </p>
+   <p class="bibitem" ><span class="biblabel">
+ &#x005B;3&#x005D;<span class="bibsp">&#x00A0;&#x00A0;&#x00A0;</span></span><a 
+ id="Xsiettos13"></a>Constantinos&#x00A0;I. Siettos and Lucia Russo. Mathematical modeling of
+   infectious disease dynamics. <span 
+class="cmti-12">Virulence</span>, 4&#x0028;4&#x0029;:295&#x2013;304, May 2013.
+                                                                          
+
+                                                                          
+</p>
+   </div>
+<!--l. 529--><p class="noindent" >__________________________________________________________________________
+</p><!--l. 531--><p class="noindent" >
+</p>
+   <h3 class="likesectionHead"><a 
+ id="x1-18000"></a>Outside Readings and Links:</h3>
+<!--l. 533--><p class="noindent" >
+      </p><dl class="enumerate-enumitem"><dt class="enumerate-enumitem">
+   1. </dt><dd 
+class="enumerate-enumitem"><span 
+class="cmti-12">Introduction to Probability</span>, Grinstead and Snell. Chapter 11 - Markov
+      Chains - <br 
+class="newline" />http://tinyurl.com/qw6sa
+      </dd><dt class="enumerate-enumitem">
+   2. </dt><dd 
+class="enumerate-enumitem"><a 
+href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3182455/" >Generalized Markov Models of Infectious Disease Spread</a>.
+      </dd><dt class="enumerate-enumitem">
+   3. </dt><dd 
+class="enumerate-enumitem"><a 
+href="http://www.stat.columbia.edu/~regina/research/risk.pdf" >Criticality in Epidemic Models</a>.</dd></dl>
+<!--l. 545--><p class="noindent" >__________________________________________________________________________
+</p><!--l. 3--><p class="indent" >   <span 
+class="cmr-10x-x-109">I check all the information on each page for correctness and typographical errors.</span>
+<span 
+class="cmr-10x-x-109">Nevertheless, some errors may occur and I would be grateful if you would alert me to</span>
+<span 
+class="cmr-10x-x-109">such errors. I make every reasonable e&#xFB00;ort to present current and accurate information</span>
+<span 
+class="cmr-10x-x-109">for public use, however I do not guarantee the accuracy or timeliness of information on</span>
+<span 
+class="cmr-10x-x-109">this website. Your use of the information from this website is strictly voluntary and at</span>
+<span 
+class="cmr-10x-x-109">your risk.</span>
+</p><!--l. 12--><p class="indent" >   <span 
+class="cmr-10x-x-109">I have checked the links to external sites for usefulness. Links to external websites</span>
+<span 
+class="cmr-10x-x-109">are provided as a convenience. I do not endorse, control, monitor, or guarantee the</span>
+<span 
+class="cmr-10x-x-109">information contained in any external website. I don&#x2019;t guarantee that the links are</span>
+<span 
+class="cmr-10x-x-109">active at all times. Use the links here with the same caution as you would all</span>
+<span 
+class="cmr-10x-x-109">information on the Internet. This website re&#xFB02;ects the thoughts, interests and opinions of</span>
+<span 
+class="cmr-10x-x-109">its author. They do not explicitly represent o&#xFB03;cial positions or policies of my</span>
+<span 
+class="cmr-10x-x-109">employer.</span>
+</p><!--l. 22--><p class="indent" >   <span 
+class="cmr-10x-x-109">Information on this website is subject to change without notice.</span>
+</p><!--l. 2--><p class="indent" >   Steve Dunbar&#x2019;s Home Page, <span class="obeylines-h"><span class="verb"><span 
+class="cmtt-12">http://www.math.unl.edu/~sdunbar1</span></span></span>
+                                                                          
+
+                                                                          
+</p><!--l. 4--><p class="indent" >   Email to Steve Dunbar, <span class="obeylines-h"><span class="verb"><span 
+class="cmtt-12">sdunbar1</span><span 
+class="cmtt-12">&#x00A0;at</span><span 
+class="cmtt-12">&#x00A0;unl</span><span 
+class="cmtt-12">&#x00A0;dot</span><span 
+class="cmtt-12">&#x00A0;edu</span></span></span>
+</p><!--l. 549--><p class="indent" >   Last modi&#xFB01;ed: Processed from <span class="LATEX">L<span class="A">A</span><span class="TEX">T<span 
+class="E">E</span>X</span></span>&#x00A0;source on November 16, 2020
+</p>
+    
+</body> 
+</html>
+                                                                          
+
+
