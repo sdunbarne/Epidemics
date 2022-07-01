@@ -1,0 +1,92 @@
+
+\begin{description}
+
+% \item[Geogebra] 
+
+% \link{  .ggb}{GeoGebra applet}
+
+\item[R] 
+
+\link{greenwood.R}{R script for Greenwood model.}
+
+\begin{lstlisting}[language=R]
+S0 <- 999
+I0 <- 1
+p  <- 0.2
+
+T <- 30
+S <- numeric(T + 1)
+I <- numeric(T + 1)
+
+S[1]  <- S0
+I[1]  <- I0
+for (t in 2:(T + 1)) {
+    I[t]  <- rbinom(1, size=S[t-1], prob=p)
+    S[t] <-  S[t - 1] - I[t]
+}
+
+plot(1:(T + 1), S, col="blue",
+     xlim = c(0, (T + 1)), ylim=c(0, (S0 + I0)),
+     main="Greenwood Epidemic Model",
+     xlab="Time", ylab="S, I")
+points(1:(T + 1), y=I, col="red")
+\end{lstlisting}
+
+\link{reedfrost.R}{R script for Reed-Frost model.}
+
+\begin{lstlisting}[language=R]
+S0 <- 9999
+I0 <- 1
+p  <- 0.00001
+q  <- 1 - p
+
+T <- 25
+S <- numeric(T + 1)
+I <- numeric(T + 1)
+
+S[1]  <- S0
+I[1]  <- I0
+for (t in 2:(T + 1)) {
+    QT = q^I[t-1]
+    I[t]  <- rbinom(1, size=S[t-1], prob=1-QT)
+    S[t] <-  S[t - 1] - I[t]
+}
+
+plot(1:(T + 1), S, col="blue",
+     xlim = c(0, (T + 1)), ylim=c(0, (S0 + I0)),
+     main="Reed-Frost Epidemic Model",
+     xlab="Time", ylab="S, I")
+points(1:(T + 1), y=I, col="red")
+\end{lstlisting}
+
+% \item[Octave]
+
+% \link{http://www.math.unl.edu/~sdunbar1/    .m}{Octave script for .}
+
+% \begin{lstlisting}[language=Octave]
+
+% \end{lstlisting}
+
+% \item[Perl] 
+
+% \link{http://www.math.unl.edu/~sdunbar1/    .pl}{Perl PDL script for .}
+
+% \begin{lstlisting}[language=Perl]
+
+% \end{lstlisting}
+
+% \item[SciPy] 
+
+% \link{http://www.math.unl.edu/~sdunbar1/    .py}{Scientific Python script for .}
+
+% \begin{lstlisting}[language=Python]
+
+% \end{lstlisting}
+
+\end{description}
+
+
+
+%%% Local Variables:
+%%% TeX-master: t
+%%% End:

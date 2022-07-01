@@ -1,0 +1,671 @@
+%%% -*-LaTeX-*-
+%%% epidemics.tex.orig
+%%% Prettyprinted by texpretty lex version 0.02 [21-May-2001]
+%%% on Fri Jul  1 08:32:07 2022
+%%% for Steve Dunbar (sdunbar@family-desktop)
+
+\documentclass[12pt]{article}
+
+\input{../../../../etc/macros} % \input{../../../../etc/mzlatex_macros}
+\input{../../../../etc/pdf_macros}
+
+\bibliographystyle{plain}
+
+\begin{document}
+
+\myheader \mytitle
+
+\hr
+
+\sectiontitle{Markov Chain Epidemic Models}
+
+\hr
+
+\visual{Rating}{../../../../CommonInformation/Lessons/rating.png}
+\section*{Rating} %one of
+% Everyone: contains no mathematics.
+% Student: contains scenes of mild algebra or calculus that may require guidance.
+Mathematically Mature:  may contain mathematics beyond calculus with
+proofs.  % Mathematicians Only: prolonged scenes of intense rigor.
+
+\hr
+
+\visual{Section Starter Question}{../../../../CommonInformation/Lessons/question_mark.png}
+\section*{Section Starter Question}
+
+Suppose a single person in a population of \( S \) susceptible
+individuals has a communicable disease.  What is a simple probabilistic
+model of how this person can infect some number of susceptible
+individuals in a given time interval?
+
+\hr
+
+\visual{Key Concepts}{../../../../CommonInformation/Lessons/keyconcepts.png}
+\section*{Key Concepts}
+
+\begin{enumerate}
+    \item
+        Markov chain \defn{Susceptible-Infected-Removed (SIR) models}.
+        have a population and a disease which infects members of the
+        population for a fixed amount of time, after which the infected
+        individuals are removed, in the sense that each one is no longer
+        susceptible and cannot become infected again.
+    \item
+        The \defn{Greenwood Model} assumes the number of Infectives in
+        generation \( t \) is a binomial random variable with parameters
+        \( S_t \) and infection success constant \( p \), not depending
+        on the number of Infectives.
+    \item
+        For the Greenwood model
+        \begin{align*}
+            \E{S_t \given S_0= s_0} &= (1-p)^t s_0, \\
+            \E{I_t \given S_0= s_0} &= p(1-p)^{t-1} s_{0}.
+        \end{align*}
+    \item
+        The \defn{Reed-Frost model} includes an infective size
+        dependency that the Greenwood model lacks.
+    \item
+        In comparison to the Greenwood model, the Reed-Frost model gives
+        a higher probability to more new Infectives at generation \( t+1
+        \) if there are already a large number of Infectives at
+        generation \( t \) than if there is only a small population of
+        Infectives. The Reed-Frost model has a positive feedback effect
+        on infectives.
+    \item
+        Under some common asymptotic assumptions, is, the number of
+        Infectives is the result of a Galton-Watson process or branching
+        process.  Then from the standard theory for branching processes,
+        the epidemic is \emph{subcritical} if \( \lambda \le 1 \) and
+        \emph{supercritical} if \( \lambda > 1 \).
+\end{enumerate}
+
+\hr
+
+\visual{Vocabulary}{../../../../CommonInformation/Lessons/vocabulary.png}
+\section*{Vocabulary}
+\begin{enumerate}
+    \item
+        Markov chain \defn{Susceptible-Infected-Removed (SIR) models}.
+        have a population and a disease which infects members of the
+        population for a fixed amount of time, after which the infected
+        individuals are removed, in the sense that each one is no longer
+        susceptible and cannot become infected again.
+    \item
+        The \defn{Greenwood Model} assumes the number of Infectives in
+        generation \( t \) is a binomial random variable with parameters
+        \( S_t \) and infection success constant \( p \), not depending
+        on the number of Infectives.
+    \item
+        The \defn{Reed-Frost model} includes an infective size
+        dependency that the Greenwood model lacks.
+    \item
+        The \defn{extinction time \( \tau \) of an epidemic} to be the
+        generation at which \( i_t \) is first zero.
+    \item
+        The \defn{total damage} of the epidemic is \( K=\sum_{j = 0}^{\tau}
+        i_j \).
+\end{enumerate}
+
+\hr
+
+\section*{Notation}
+\begin{enumerate}
+    \item
+        \( t \) -- the integer variable enumerating unit time periods
+        for each generation
+    \item
+        \( N \) -- population constant value
+    \item
+        \( S_t \) -- the number of Susceptibles at generation \( t \)
+    \item
+        \( I_t \) -- the number of Infectives at generation \( t \)
+    \item
+        \( p \) -- the probability that a given Susceptible will become
+        infected in one generation
+    \item
+        \( K=\sum_{j = 0}^{\tau} I_j \) -- the total damage of the
+        epidemic
+    \item
+        \( q = 1 - p \) -- the probability of \emph{avoiding} contact
+        with that infective
+    \item
+        \( \tau \) -- extinction time of an epidemic to be the
+        generation at which \( i_t \) is first zero
+    \item
+        \( s_t \) -- specific numbers of Susceptibles.
+    \item
+        \( i_{t} \) -- the specific number of Susceptibles who will
+        become infected
+    \item
+        \( m = i_0 = o(n) \)
+    \item
+        \( \lambda \) -- parameter such that \( q = \EulerE^{-\lambda/n}
+        \)
+\end{enumerate}
+\visual{Mathematical Ideas}{../../../../CommonInformation/Lessons/mathematicalideas.png}
+\section*{Mathematical Ideas}
+
+\subsection*{Introduction}
+
+This section is an introduction to elementary Markov chain \defn{Susceptible-Infected-Removed
+(SIR) models}.~%
+\index{SIR models}%
+~%
+\index{epidemic models}
+These Markov chains model a population and a disease that infects
+members of the population for a fixed amount of time, after which each
+infected individual are removed, in the sense that they are no longer
+susceptible and cannot become infected again.  The removed class
+includes individuals who are no longer either susceptible either because
+of recovery and subsequent immunity or because of death.  That is, after
+members of the population have been infected for one time unit, the
+model no longer considers them, as the removed indiduals cannot infect
+anyone else, nor can they become infected again.  Therefore only two
+classes need to be considered, the Susceptibles and the Infectives.
+Figure~%
+\ref{fig:epidemics:sirdiagram} shows the movement between the classes.
+
+\begin{figure}
+    \centering
+\begin{asy}
+        settings.outformat = "pdf";
+
+        // import graph;
+
+        size(5inches);
+
+        real myfontsize = 12;
+        real mylineskip = 1.2*myfontsize;
+        pen mypen = fontsize(myfontsize, mylineskip);
+        defaultpen(mypen);
+
+        real r = 0.10;
+
+        path cS = circle( (0,0), r);
+        pair cSa = relpoint(cS, 0);
+        draw(cS);
+        label("\( S \)", (0,0));
+
+        path cI = circle( (1/2,0), r);
+        pair cIa = relpoint(cI, 0);
+        pair cIz = relpoint(cI, 0.5);
+        draw(cI); label("\( I \)", (1/2, 0));
+
+        path cR = circle( (1,0), r);
+        pair cRz = relpoint(cR, 0.5);
+        draw(cR);
+        label("\( R \)", (1, 0));
+
+        draw( cSa -- cIz, Arrow);
+        draw( cIa -- cRz, Arrow);
+\end{asy}
+    \caption{Schematic class diagram for the simple
+    Susceptible-Infective-Removed epidemic model illustrating the
+    classes of the epidemic and the movement from class to class and not
+    the state transitions of the Markov chain.}%
+    \label{fig:epidemics:sirdiagram}
+\end{figure}
+
+Markov chain models use discrete time and a discrete state space.  The
+discrete time will be in units of the infectivity period of the disease.
+Typically this unit time is about \( 7 \)-\( 8 \) days for measles, and
+about \( 7 \)-\( 9 \) days for influenza.  Call each of these unit time
+periods a generation, enumerated by the integer variable \( t \).  (This
+is a slight change from the usual notation for discrete time Markov
+chains using indices \( i \) or \( j \) for the discrete time.  Using \(
+t \) avoids confusion with the number of Infectives.) The infectivity
+period may either be distinct from, or overlap, the period when the
+infected person shows symptoms of the disease.  The incubation period,
+the period between infection and onset of symptoms, and the latent
+period, the time from infection to infectiousness are different from the
+infectivity period.  Figure~%
+\ref{fig:epidemics:periods} illustrates one possible configuration of
+these disease periods.  The states will be the number of Susceptibles
+and Infectives in a homogeneous and well-mixed population.  Assume the
+epidemic takes place over a short enough time interval that the
+population is a constant value \( N \), that is, assume no births and no
+emigration or immigration.  So it is enough to consider only
+Susceptibles and Infectives since the number of individuals in the
+Removed class is determined from the other two.
+
+\begin{figure}
+    \centering
+\begin{asy}
+        settings.outformat = "pdf";
+
+        import graph;
+
+        size(5inches);
+
+        real myfontsize = 12;
+        real mylineskip = 1.2*myfontsize;
+        pen mypen = fontsize(myfontsize, mylineskip);
+        defaultpen(mypen);
+
+        real f( real x) { return -(x - 2/3) * (x - 4/3);}
+
+        path sympt = graph(f, 2/3, 4/3);
+        draw( sympt ); fill(sympt--(4/3,0)--cycle, lightgray);
+
+        real[] rt = {1/2, 1.0}; real[] lt = {2/3, 4/3};
+
+        xaxis(L=Label("Time", position=EndPoint), xmin=0, xmax=3/2,
+              ticks=LeftTicks(lt, format="%"), arrow=Arrow);
+        xaxis(xmin=0, xmax=1.2, ticks=RightTicks(rt, format="%"));
+        yaxis(L=Label("Symptoms", position=EndPoint), ymin=0, ymax=0.3,
+              arrow=Arrow);
+
+        label("Latent Period", (1/4,0), S);
+        label("Infectious Period", (3/4,0), S);
+        label("Incubation Period", (1/3,0), N);
+        label("Symptoms Present", (1,0), N);
+\end{asy}
+    \caption{Possible relation of disease stages or periods.}%
+    \label{fig:epidemics:periods}
+\end{figure}
+
+To keep track of each group, denote the number of Susceptibles at
+generation \( t \) by \( S_t \), and the number of Infectives at
+generation \( t \) by \( I_t \).  These random variables may achieve any
+integer value such that \( S_t + I_t \) is in the population range.
+
+A natural first question for any epidemic model is the probability of
+having \( I_{t+1} \) Infectives at generation \( t+1 \).  In asking this
+question at generation \( t \), the number of Susceptibles and
+Infectives at every generation up to \( t \) are known.  Since the model
+is expressed in time units of infectivity periods where individuals move
+from one class to another, the main focus is on the number of Infectives
+at generation \( t \), ignoring the past, also keeping track of the
+Susceptibles.  Then the model is a first-order Markov process through
+the states \( S_t \), \( I_t \) with \( S_t + I_t \le N \).  If the
+population is \( N \), the number of states is \( N(N+1)/2 \) so this is
+a Markov chain with many states.
+
+\subsection*{Greenwood Model}
+
+The \defn{Greenwood Model}~%
+\index{Greenwood model}
+assumes the number of Infectives in generation \( t \) is a binomial
+random variable with parameters \( S_t \) and infection success constant
+\( p \), not depending on the number of Infectives:
+\begin{multline*}
+    \Prob{I_{t+1}=i_{t+1} \given S_0=s_0, I_0=i_0, \ldots,S_t=s_t, I_t=i_t}
+    = \\
+    \Prob{I_{t+1}=i_{t+1} \given S_t=s_t, I_t=i_t} = \binom{s_t}{i_{t+1}}p^
+    {i_{t+1}}(1-p)^{s_t-i_t}.
+\end{multline*}
+
+The first equality represents the first-order Markov chain assumption.
+Consider the second equality in further detail.  At generation \( t \)
+there are \( s_t \) Susceptibles.  To find the probability that \( i_{t+1}
+\) members of this group become Infectives, choose \( i_{t} \) of the
+Susceptibles who will become infected.  Similarly \( p \) is the
+probability that a given Susceptible will become infected in one
+generation.  Thus the probability \( i_{t+1} \) Susceptibles become
+Infectives is \( p^{i_{t+1}} \).  Note that a Susceptible becoming
+Infective is a ``success'' (for the disease, not the population) in the
+binomial random variable sense.  Remaining a Susceptible is a failure in
+the binomial sense.  The transition for the Susceptibles is
+\[
+    S_{t+1} = S_t - I_{t+1}.
+\]
+
+Because \( I_{t+1} \) is a binomial random variable
+\[
+    E[I_{t+1} \given S_t]= p S_t.
+\] This expression gives us the expected number of Infectives at
+generation \( t+1 \) given the number of Susceptibles at generation \( t
+\).  Extend this idea to say
+\begin{align*}
+    \E{S_{t+1} \given S_t } = \E{S_t} - \E{I_{t+1}} = (1-p) S_t.
+\end{align*}
+By induction
+\begin{align*}
+    \E{S_t \given S_0= s_0} &= (1-p)^t s_0, \\
+    \E{I_t \given S_0= s_0} &= p(1-p)^{t-1} s_{0}.
+\end{align*}
+
+\subsection*{Reed-Frost Model}
+
+The Reed-Frost model is an SIR mathematical model of epidemics created
+in the 1920s by Lowell Reed and Wade Hampton Frost at Johns Hopkins
+University.  Originally presented in a talk by Frost in 1928 and used in
+courses at Hopkins for two decades, the mathematical formulation was not
+published until the 1950s.
+
+The Greenwood model has a fixed probability of infection, independent of
+the number of Infectives at the current generation step.  The \defn{Reed-Frost
+model}~%
+\index{Reed-Frost model}
+includes an infective size dependency that the Greenwood model lacks.
+The Reed-Frost model is based on the following assumptions:
+\begin{enumerate}
+    \item
+        The infection is spread directly from Infectives to Susceptibles
+        by a certain type of contact (termed ``adequate contact'') and
+        in no other way.
+    \item
+        Any Susceptible in the group, after such contact with an
+        Infective in a given generation, will develop the infection and
+        will be infectious to others only within the following
+        generation period.  In subsequent generation periods, the
+        individual is wholly and permanently immune and moves to the
+        Removed class.
+    \item
+        Each individual has a fixed probability \( p \) of coming into
+        adequate contact with any other specified individual in the
+        group within one time interval, and this probability is the same
+        for every member of the group.
+    \item
+        The population is constant with no births, immigration or
+        emigration.
+    \item
+        These conditions stay constant during the epidemic.
+\end{enumerate}
+Set the following initial parameters:
+\begin{itemize}
+    \item
+        the size of the population \( N \),
+    \item
+        the number of individuals already immune, typically \( 0 \),
+    \item
+        the number of Infective cases, usually set at \( 1 \),
+    \item
+        the probability \( p \) of adequate contact.
+\end{itemize}
+If \( p \) is the probability of a given Susceptible \emph{making
+adequate contact} with \( 1 \) specific Infective, then \( q = 1 - p \)
+is the probability of \emph{avoiding} contact with that infective.  Make
+the (vastly simplifying and probably unjustified) assumption that all
+interactions of the Susceptible with all Infectives are independent
+events.  Then \( q^{i_t} \) is the probability the given Susceptible at
+generation \( t \) avoids adequate contact at generation \( t \) from
+\emph{all} Infectives in the population at that generation and remains
+Susceptible at generation \( t + 1 \).  This is a failure for the
+epidemic in the binomial random variable sense.  The probability of a
+Susceptible being infected is then \( (1 - q^{i_t}) \), a success for
+the epidemic.  Then as a binomial random variable, the probability of
+the number of Infectives in the next generation is
+\[
+    \Prob{I_{t+1} = i_{t+1} \given S_t=s_t, I_t=i_t} = \binom{s_t}{i_{t+1}}
+    \left(1 - (1-q^{i_t})\right)^{ i_{t+1}}\left(q^{i_t}\right)^{s_t-i_t}
+\] and \( S_{t+1} = S_t - I_{t+1} \).  In comparison to the Greenwood
+model, the Reed-Frost model gives a higher probability to more new
+Infectives at generation \( t+1 \) if the population already has a large
+number Infectives at generation \( t \) than if there is only a small
+population of Infectives.  The Reed-Frost model has a positive feedback
+effect on infectives.
+
+A success for the epidemic is a failure for the Susceptibles and a
+failure for the epidemic is a success for the Susceptibles.  Then an
+alternative expression for the Reed-Frost model is
+\[
+    \Prob{S_{t+1} = s_{t+1} \given S_t=s_t, I_t=i_t} = \binom{s_t}{i_{t+1}}
+    \left( q^{i_t}\right)^{i_{t+1}}\left(1 - q^{i_t}\right)^{s_t-i_t}
+\] and \( S_{t+1} = S_t - S_{t+1} \).
+
+Define the \defn{extinction time \( \tau \) of an epidemic}%
+\index{extinction time}
+to be the generation at which \( i_t \) is first zero.  This is an
+absorbing state for the Markov Chain.  Note that if the number of
+Susceptibles becomes \( 0 \) in a generation \( t \), then \( i_{t+1} =
+0 \).  Of more interest is the probability \( S_{\tau} > 0 \) and \( I_{\tau}
+= 0 \).  Consider an epidemic for which the Infectives have progressed
+to extinction \( i_1, i_2, \ldots, i_{\tau-1}, i_{\tau} = 0 \).  Note
+that \( i_{\tau - 1} > 0 \).  Thus
+\begin{multline*}
+    \Prob{I_1 =i_1, \ldots, I_{k}=i_k, I_{k+1}=0 \given S_0=n, I_0=m} =
+    \\
+    \Prob{I_1=i_1 \given S_0=n, I_0=m}\times \Prob{I_2=i_2 \given S_1=n-i_1,
+    I_1=i_1}\times\cdots\times \\
+    \Prob{I_{\tau}=0 \given S_{\tau - 1}=s_{\tau - 1}, I_{\tau - 1}=i_{\tau
+    - 1}}.
+\end{multline*}
+
+In this specific epidemic, the \defn{total damage}%
+\index{total damage}
+of the epidemic is \( K=\sum_{j = 0}^{\tau} I_j \).  As \( K \) is the
+sum of \( I_i \)'s, treat it as a random variable.  Thus consider:
+\[
+    \Prob{K=k \given S_0=n,I_0=m}=\sum_{\vec{i}:  \abs{\vec{i}=k}}\Prob {I_1
+    =i_1,\ldots,I_{\tau}=0 \given S_0=n,I_0=m}.
+\] Some common asymptotics apply here.  Let \( m = i_0 = o(n) \) and
+suppose \( q = \EulerE^{-\lambda/n} \) so \( p = 1- q = O(n^{-1}) \) and
+the expected number of adequate contacts \( q^{i_t} \) is approximately
+constant.  At the beginning of the epidemic, using the first formulation
+of the Reed-Frost model
+\begin{align*}
+    \Prob{I_{t+1}} &=
+    \operatorname{Bin}
+    (S_t, 1 - \EulerE^{-\lambda I_t/n}) \\
+    &\approx
+    \operatorname{Bin}
+    (n, \lambda I_t/n) \\
+    &\approx
+    \operatorname{Poisson}
+    (\lambda I_t)
+\end{align*}
+This means \( I_{t+1} \) is the sum of \( I_t \) independent Poisson
+random variables with parameter \( \lambda \).  That is, the number of
+Infectives is the result of a Galton-Watson process or branching
+process.  Then from the standard theory for branching processes, the
+epidemic is \emph{subcritical} if \( \lambda \le 1 \) and \emph{supercritical}
+if \( \lambda > 1 \).  That is, the trajectories of this process either
+die out or explode in an exponential way, at least at the beginning of
+the epidemic while the asymptotic assumptions hold.  This points to more
+general stochastic process models of epidemics as branching processes.
+Although the epidemic models are Markov chains, the tools of branching
+processes are more applicable and yield more detailed results.
+
+\subsection*{Limitations}
+
+Both of these models assume a homogeneous population, i.e.\ everyone is
+equally likely to get sick assuming the same exposure.  Also the
+Reed-Frost model assumes that the population mixes perfectly, that is,
+every Susceptible interacts with every Infective and thus has an equally
+likely chance to get sick from each one.  Both models assume
+independence in these interactions.  These assumptions apply best to a
+moderately-sized (reasonably) closed situations such as a dormitory, a
+nursing home under quarantine, a cruise ship, a factory, or perhaps a
+small town.
+
+For large populations such as a city or an entire country, the
+assumptions of homogeneous population and perfect mixing don't apply.
+Also for large populations, direct calculation of the binomial
+coefficients at each stage is inconvenient, and so using continuum
+limits is appropriate, leading to differential equation epidemic models.
+However, one advantage of the stochastic process models is the
+possibility of obtaining a distribution for the extinction times.  This
+is a more realistic property than the extinction time given by an
+asymptotic deterministic model.
+
+More detailed models have multiple health and infection classes instead
+of just Infectives.  More detailed models may also cross these with
+factors influencing mixing, such as age, social class, or geographical
+location.  The mathematical modeling of epidemics has a huge literature,
+the references below are a starting point.
+
+\visual{Section Starter Question}{../../../../CommonInformation/Lessons/question_mark.png}
+\section*{Section Ending Answer}
+
+One particularly simple model is that the infective transmits the
+disease to a fixed number of susceptibles, this is not probabilistic.  A
+probabilistic model is that the infective transmits to each susceptible
+with probability \( p \), leading to the binomial probability
+distribution of the Greenwood model.  A third possibility is that the
+number of infected is a Poisson random variable with parameter \(
+\lambda \).  This would be appropriate if the population is large and
+the transmission rate is constant across various size groups of
+susceptibles.
+
+\subsection*{Sources}
+
+Details of the Greenwood and Reed-Frost models are adapted from
+``Criticality in Epidemic Models'' by R. Dolgoarshinnykh,
+\cite{dolgoarshinnykh}.  Comments on epidemics as branching processes
+and more detailed assumptions for epidemics are from ``Branching
+Processes:  Their Role in Epidemiology'', by C. Jacob,
+\cite{jacob10}.  See also
+\cite{siettos13} for a survey of mathematical models of infectious
+diseases.  The exercise is adapted from the Ohio Supercomputer Center
+Summer Institute, \link{https://www.osc.edu/education/si/projects/epidemic}
+{Reed-Frost Epidemic Model}.
+
+\hr
+
+\visual{Algorithms, Scripts, Simulations}{../../../../CommonInformation/Lessons/computer.png}
+\section*{Algorithms, Scripts, Simulations}
+
+\subsection*{Algorithm}
+
+\begin{algorithm}[H]
+  \DontPrintSemicolon
+  \KwData{initial Susceptibles, Infectives, probability, time}
+  \KwResult{Plot of Susceptibles, Infectives versus time}
+  \BlankLine
+  \emph{Initialization}\;
+  Set initial Susceptibles, Infectives, probability, time\;
+  Loop over time\;
+  Get random binomial variate from number of Susceptible\;
+  Update the infectives\;
+  \KwRet{Plot of Susceptibles, Infectives versus time}
+  \caption{Simulation of epidemics with Greenwood and Reed Frost models.}
+\end{algorithm}
+
+\subsection*{Scripts}
+
+\input{epidemic_scripts}
+
+\hr
+
+\visual{Problems to Work}{../../../../CommonInformation/Lessons/solveproblems.png}
+\section*{Problems to Work for Understanding}
+\renewcommand{\theexerciseseries}{}
+\renewcommand{\theexercise}{\arabic{exercise}}
+
+\begin{exercise}
+    Write a script that simulates a place-based epidemic model.  For
+    this modification, assume that all the individuals are standing next
+    to each other on a two-dimensional grid.  Let one individual be an
+    infective case.  An infective can now probabilistically infect only
+    his immediate neighbors on the grid.  In the next time period, those
+    people who got sick now have a chance to infect their neighbors and
+    so on.  Display on a two-dimensional grid that shows all the
+    individuals what state they are in (i.e., Susceptible, Infective, or
+    Recovered), with an animation if possible.  Run the script many
+    times with different input parameters.  How does the pattern of the
+    epidemic flow change with the contact probability?
+\end{exercise}
+
+\begin{solution}
+    The following script is a simple implementation of an epidemic on a
+    two-dimensional grid.  For a given value of \( N \), the script
+    defines a population of Susceptibles on a square grid of size \( 2N
+    + 1 \), and sets an Infective at the center location \( (N, N) \).
+    The infective can infect neighbors with probability \( p \), ands
+    fails to infect neighbors with probability \( 1 - p \).  Because the
+    infection can only spread to immmediate neighbors, the epidemic
+    spreads through concentric rings of squares outward from the center.
+    The spread in concentric rings means that the epidemic will take
+    place over \( N \) steps, possibly stopping at some earlier step due
+    to no Infectives, which the script reports.  At each step, for all
+    Infectives in the grid, the script successively infects immediate
+    neighbors to the north, east, west and south with probability \( p \).
+    After possibly infecting neighbors, the infective becomes a Removed
+    individual, so the infectious period lasts one step.  At the end of
+    each step, the script records the state of the epidemic.  For
+    testing and debugging, a value of \( N = 3 \) is convenient.  For an
+    experiment, a value of \( N = 25 \) is useful.
+
+\begin{lstlisting}{language=R}
+N <- 25
+# N <- 3
+p <- 0.6
+
+popn <- matrix("S", 2*N+1, 2*N+1)
+popn[N+1,N+1] <- "I"
+
+dir <- list("N" = -1, "E" = 2*N+1, "S" = 1, "W" = -(2*N+1))
+
+infect <- function(pos, d) {
+       if (popn[pos + d] == "S") {
+           if (runif(1) < p ){ popn[pos + d] <<- "I"}
+       }
+}
+
+epidemic <- array("", dim=c(2*N+1, 2*N+1, N)) 
+
+for (t in 1:N) { # RINGS or EPOCHS
+    
+    infs <- which(popn == "I")
+    if (length(infs) == 0) {
+        cat("Epidemic ended after", t-1, "steps.\n")
+         break}
+    else  { 
+     for  (j in infs) {
+          for (d in dir) {
+              infect(j, d)
+          }
+     popn[j] <- "R"
+     }
+    epidemic[, , t] <- popn
+   }
+}   
+
+# # Animation code is adapted from
+# # https://ryouready.wordpress.com/2010/11/21/animate-gif-images-in-r-imagemagick/
+# epidemicfactors <- array(as.numeric(factor(epidemic)), dim=c(2*N+1, 2*N+1, N))
+# par(xaxt="n", yaxt="n")         #remove axis labels and ticks
+# png(file="epidemicImage%02d.png")
+# for (t in 1:N) {
+#     image(epidemicfactors[ , , t], col=c( "red", "blue", "green" ))
+# }
+# dev.off()
+# system("convert -delay 80 *.png epidemicAnimation.gif")
+
+# file.remove(list.files(pattern=".png"))
+\end{lstlisting}
+
+    This script is a very simple epidemic model with only basic attempts
+    at efficiency.  Many modifications are possible.
+
+    The animation is simple, relying on the graphics manipulation tool
+    ImageMagick.  The animation code is commented out because of the
+    reliance on system dependent features.  More elaborate animations
+    are possible with other R packages such as plotly and gganimate.
+
+\end{solution}
+\hr
+
+\visual{Books}{../../../../CommonInformation/Lessons/books.png}
+\section*{Reading Suggestion:}
+
+\bibliography{../../../../CommonInformation/bibliography}
+
+\hr
+
+\section*{Outside Readings and Links:}
+\begin{enumerate}
+    \item
+        \booktitle{Introduction to Probability}, Grinstead and Snell.
+        Chapter 11 - Markov Chains - \\
+        http://tinyurl.com/qw6sa
+    \item
+        \link{https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3182455/}{Generalized
+        Markov Models of Infectious Disease Spread}
+    \item
+        \link{http://www.stat.columbia.edu/~regina/research/risk.pdf}{Criticality
+        in Epidemic Models}
+\end{enumerate}
+
+\section*{\solutionsname}
+\loadSolutions
+
+\hr
+
+\mydisclaim \myfooter
+
+Last modified:  \flastmod
+
+\end{document}
+
